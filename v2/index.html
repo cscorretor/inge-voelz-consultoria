@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inge Voelz | Consultoria Executiva em Gestão de Saúde</title>
+<meta name="description" content="Consultoria executiva para sócios de clínicas médicas e hospitais-dia. 40+ anos de experiência hospitalar em Blumenau e Vale do Itajaí. Contratos, glosas, KPIs e governança.">
+<meta name="theme-color" content="#061827">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════
+   ROOT & RESET
+═══════════════════════════════════════════════════ */
+:root {
+  --n0: #020e18;
+  --n1: #061827;
+  --n2: #0c2336;
+  --n3: #132f47;
+  --g1: #b8924a;
+  --g2: #d4b06e;
+  --g3: #e8d4a8;
+  --g0: rgba(184,146,74,.12);
+  --cream: #f4f0e8;
+  --cream2: #ede9df;
+  --slate: #5a7080;
+  --slate2: #8ba0ae;
+  --white: #fff;
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
+body{background:var(--cream);color:var(--n1);font-family:var(--sans);overflow-x:hidden;cursor:none}
+
+/* ═══════════════════════════════════════════════════
+   CUSTOM CURSOR
+═══════════════════════════════════════════════════ */
+#cursor{position:fixed;width:8px;height:8px;background:var(--g1);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s var(--ease),height .2s var(--ease),background .2s;mix-blend-mode:normal}
+#cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(184,146,74,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .12s var(--ease),width .25s var(--ease),height .25s var(--ease),opacity .2s}
+body:not(:hover) #cursor,body:not(:hover) #cursor-ring{opacity:0}
+
+/* ═══════════════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════════════ */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--n1)}
+::-webkit-scrollbar-thumb{background:var(--g1);border-radius:2px}
+
+/* ═══════════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:64px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(1.5rem,4vw,4rem);
+  transition:background .4s,border-color .4s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{background:rgba(6,24,39,.97);border-color:rgba(184,146,74,.18);backdrop-filter:blur(14px)}
+.nav-logo{display:flex;align-items:center;gap:13px;text-decoration:none}
+.nav-mono{
+  font-family:var(--serif);font-weight:600;font-size:1.4rem;color:var(--g1);
+  width:40px;height:40px;border:1.5px solid rgba(184,146,74,.5);
+  display:flex;align-items:center;justify-content:center;letter-spacing:-.02em;
+  transition:background .2s,color .2s;
+}
+.nav-mono:hover{background:var(--g1);color:var(--n1)}
+.nav-id{display:flex;flex-direction:column;gap:1px}
+.nav-id strong{font-family:var(--serif);font-size:.88rem;color:var(--white);font-weight:600;letter-spacing:.01em;line-height:1.2}
+.nav-id span{font-size:.6rem;color:var(--g2);letter-spacing:.1em;text-transform:uppercase}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.55);font-size:.75rem;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;transition:color .2s;font-weight:500}
+.nav-links a:hover{color:var(--g1)}
+.nav-cta{background:var(--g1)!important;color:var(--n1)!important;padding:9px 22px!important;font-weight:600!important;letter-spacing:.05em!important;transition:background .2s,transform .15s!important}
+.nav-cta:hover{background:var(--g2)!important;transform:translateY(-1px)!important}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-ham span{width:22px;height:1.5px;background:var(--white);transition:.3s}
+
+/* ═══════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════ */
+.hero{
+  min-height:100svh;background:var(--n1);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 clamp(1.5rem,5vw,5rem) clamp(3rem,6vh,5rem);
+  position:relative;overflow:hidden;
+}
+
+/* animated grid bg */
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(184,146,74,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(184,146,74,.05) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 80% 80% at 60% 50%,black 30%,transparent 100%);
+}
+.hero-glow{
+  position:absolute;top:-10%;right:-5%;
+  width:55vw;height:80vh;
+  background:radial-gradient(ellipse at center,rgba(184,146,74,.07) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero-line{
+  position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(184,146,74,.3) 40%,rgba(184,146,74,.3) 60%,transparent);
+}
+
+/* diagonal accent */
+.hero-accent{
+  position:absolute;top:0;right:0;width:40%;height:100%;
+  background:linear-gradient(135deg,transparent 60%,rgba(184,146,74,.03) 100%);
+  border-left:1px solid rgba(184,146,74,.08);
+  pointer-events:none;
+}
+
+.hero-top{
+  position:absolute;top:clamp(5rem,10vh,8rem);left:clamp(1.5rem,5vw,5rem);right:clamp(1.5rem,5vw,5rem);
+  display:flex;align-items:flex-start;justify-content:space-between;
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid rgba(184,146,74,.3);
+  color:var(--g2);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 15px;pointer-events:all;font-weight:500;
+}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--g1);animation:bdot 2.2s infinite}
+@keyframes bdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+
+.hero-cred{
+  text-align:right;pointer-events:all;
+  display:flex;flex-direction:column;gap:4px;
+}
+.hero-cred span{font-size:.62rem;color:rgba(255,255,255,.3);letter-spacing:.08em;text-transform:uppercase;display:block}
+.hero-cred strong{font-size:.68rem;color:rgba(184,146,74,.6);letter-spacing:.06em}
+
+.hero-content{position:relative;z-index:2;max-width:900px;margin-top:auto}
+.hero-h1{
+  font-family:var(--serif);font-size:clamp(3rem,7.5vw,6.5rem);
+  line-height:1.0;color:var(--white);font-weight:700;
+  letter-spacing:-.025em;margin-bottom:2rem;
+  opacity:0;transform:translateY(30px);
+  animation:heroIn .9s .3s var(--ease) forwards;
+}
+.hero-h1 em{font-style:italic;color:var(--g1);font-weight:600}
+.hero-h1 .thin{font-weight:300;font-style:italic;color:rgba(255,255,255,.55)}
+
+@keyframes heroIn{to{opacity:1;transform:translateY(0)}}
+
+.hero-sub{
+  font-size:clamp(.95rem,1.6vw,1.1rem);color:var(--slate2);max-width:520px;
+  line-height:1.75;margin-bottom:2.8rem;
+  opacity:0;animation:heroIn .9s .55s var(--ease) forwards;
+}
+.hero-actions{
+  display:flex;gap:16px;flex-wrap:wrap;
+  opacity:0;animation:heroIn .9s .7s var(--ease) forwards;
+}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:all .25s var(--ease);cursor:none}
+.btn-gold{background:var(--g1);color:var(--n1);padding:14px 30px}
+.btn-gold:hover{background:var(--g2);transform:translateY(-2px);box-shadow:0 12px 32px rgba(184,146,74,.25)}
+.btn-outline{border:1px solid rgba(184,146,74,.35);color:var(--g2);padding:13px 26px}
+.btn-outline:hover{border-color:var(--g1);background:rgba(184,146,74,.07)}
+.btn-arrow{font-size:.9rem;transition:transform .2s}
+.btn-gold:hover .btn-arrow{transform:translateX(4px)}
+
+.hero-stats{
+  display:flex;gap:clamp(2rem,4vw,4rem);margin-top:3.5rem;padding-top:2.5rem;
+  border-top:1px solid rgba(184,146,74,.12);
+  opacity:0;animation:heroIn .9s .9s var(--ease) forwards;
+}
+.hstat{display:flex;flex-direction:column;gap:3px}
+.hstat-val{font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--g1);line-height:1;letter-spacing:-.02em}
+.hstat-lbl{font-size:.65rem;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase}
+
+/* ═══════════════════════════════════════════════════
+   MARQUEE STRIP
+═══════════════════════════════════════════════════ */
+.marquee-strip{
+  background:var(--n0);border-top:1px solid rgba(184,146,74,.15);
+  border-bottom:1px solid rgba(184,146,74,.15);
+  padding:14px 0;overflow:hidden;position:relative;z-index:2;
+}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 28s linear infinite}
+.marquee-item{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:0 2.5rem;font-size:.68rem;letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:500;
+}
+.marquee-item b{color:var(--g1);font-weight:600}
+.marquee-dot{width:3px;height:3px;border-radius:50%;background:rgba(184,146,74,.4);flex-shrink:0}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══════════════════════════════════════════════════
+   SECTION COMMON
+═══════════════════════════════════════════════════ */
+.section{padding:clamp(4rem,9vh,8rem) clamp(1.5rem,5vw,5rem)}
+.stag{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--g1);font-weight:600;display:flex;align-items:center;gap:10px;margin-bottom:1.1rem}
+.stag::before{content:'';width:22px;height:1.5px;background:var(--g1);flex-shrink:0}
+.s-title{font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.1;letter-spacing:-.025em;margin-bottom:1.1rem}
+.s-sub{font-size:1rem;line-height:1.8;color:var(--slate);max-width:580px;margin-bottom:3.5rem}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-l{opacity:0;transform:translateX(-28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal-l.visible{opacity:1;transform:none}
+.reveal-r{opacity:0;transform:translateX(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal-r.visible{opacity:1;transform:none}
+[data-delay="1"]{transition-delay:.1s}
+[data-delay="2"]{transition-delay:.2s}
+[data-delay="3"]{transition-delay:.3s}
+[data-delay="4"]{transition-delay:.4s}
+[data-delay="5"]{transition-delay:.5s}
+
+/* ═══════════════════════════════════════════════════
+   DIAGNOSTIC
+═══════════════════════════════════════════════════ */
+#diagnostico{background:var(--cream)}
+.diag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(184,146,74,.12);margin-top:3.5rem}
+.diag-card{
+  background:var(--white);padding:2.8rem 2.2rem;
+  position:relative;overflow:hidden;cursor:default;
+  transition:background .35s;
+}
+.diag-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:100%;height:2px;
+  background:var(--g1);transition:right .4s var(--ease);
+}
+.diag-card:hover{background:var(--n1)}
+.diag-card:hover::after{right:0}
+.diag-card:hover .dc-n,.diag-card:hover .dc-t{color:var(--white)}
+.diag-card:hover .dc-d{color:var(--slate2)}
+.diag-card:hover .dc-icon{border-color:rgba(184,146,74,.3);color:var(--g1)}
+.dc-n{font-family:var(--serif);font-size:4rem;font-weight:700;color:rgba(184,146,74,.12);line-height:1;margin-bottom:1.5rem;transition:color .35s;letter-spacing:-.04em}
+.dc-icon{
+  width:48px;height:48px;border:1px solid rgba(184,146,74,.2);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--g1);margin-bottom:1.8rem;font-size:1.3rem;transition:border-color .35s,color .35s;
+}
+.dc-t{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--n1);margin-bottom:.8rem;line-height:1.25;transition:color .35s}
+.dc-d{font-size:.875rem;color:var(--slate);line-height:1.75;transition:color .35s}
+
+/* ═══════════════════════════════════════════════════
+   SIMULATOR
+═══════════════════════════════════════════════════ */
+#simulador{background:var(--n1);position:relative;overflow:hidden}
+#simulador::before{
+  content:'';position:absolute;top:-30%;right:-10%;
+  width:60%;padding-bottom:60%;border-radius:50%;
+  background:radial-gradient(circle,rgba(184,146,74,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+#simulador .s-title{color:var(--white)}
+#simulador .s-sub{color:var(--slate2)}
+#simulador .stag{color:var(--g1)}
+
+.sim-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+
+.sim-sliders{display:flex;flex-direction:column;gap:2.5rem}
+.sfield label{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--g2);margin-bottom:1rem;font-weight:500;
+}
+.sfield label span{
+  font-family:var(--serif);font-size:1.3rem;font-weight:600;
+  color:var(--white);letter-spacing:-.01em;text-transform:none;
+}
+input[type=range]{
+  -webkit-appearance:none;width:100%;height:2px;
+  background:linear-gradient(to right,var(--g1) var(--pct,0%),rgba(255,255,255,.1) var(--pct,0%));
+  outline:none;cursor:none;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:20px;height:20px;
+  background:var(--n1);border:2px solid var(--g1);border-radius:50%;
+  transition:transform .15s,box-shadow .15s;cursor:none;
+}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2);box-shadow:0 0 0 6px rgba(184,146,74,.15)}
+.sfield-hint{font-size:.7rem;color:var(--slate);margin-top:.6rem;font-style:italic}
+
+.sim-panel{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(184,146,74,.18);
+  padding:3rem;position:relative;
+}
+.sim-panel::before{
+  content:'Estimativa';position:absolute;
+  top:-10px;left:2rem;
+  background:var(--g1);color:var(--n1);
+  font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:700;padding:3px 10px;
+}
+.sim-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:1.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);
+}
+.sim-row:last-of-type{border-bottom:none}
+.sim-lbl{font-size:.82rem;color:var(--slate2)}
+.sim-val{font-family:var(--serif);font-size:1.7rem;font-weight:600;color:var(--white);letter-spacing:-.02em}
+.sim-val.red{color:#e07070}
+.sim-val.gold{color:var(--g1)}
+.sim-note{margin-top:1.8rem;font-size:.72rem;color:var(--slate);line-height:1.6;font-style:italic;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.05)}
+
+.sim-gauge{
+  width:100%;height:6px;
+  background:rgba(255,255,255,.05);
+  border-radius:3px;margin:1rem 0 .3rem;overflow:hidden;
+}
+.sim-gauge-fill{
+  height:100%;background:linear-gradient(to right,var(--g1),#e07070);
+  border-radius:3px;transition:width .5s var(--ease);
+}
+.sim-gauge-label{display:flex;justify-content:space-between}
+.sim-gauge-label span{font-size:.65rem;color:var(--slate);letter-spacing:.06em;text-transform:uppercase}
+
+/* ═══════════════════════════════════════════════════
+   AUTHORITY
+═══════════════════════════════════════════════════ */
+#experiencia{background:var(--cream2)}
+.auth-wrap{display:grid;grid-template-columns:420px 1fr;gap:6rem;align-items:start}
+.auth-photo{position:relative}
+.auth-photo-inner{
+  background:var(--n1);aspect-ratio:3/4;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--g1);
+}
+.auth-photo-inner::before{
+  content:'IV';font-family:var(--serif);font-weight:700;font-size:14rem;
+  color:rgba(184,146,74,.05);position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);line-height:1;user-select:none;letter-spacing:-.04em;
+}
+.auth-photo-hint{
+  position:relative;z-index:1;text-align:center;padding:2rem;
+  display:flex;flex-direction:column;align-items:center;gap:1.2rem;
+}
+.auth-mono{
+  font-family:var(--serif);font-size:5rem;font-weight:700;color:rgba(184,146,74,.35);
+  letter-spacing:-.04em;line-height:1;
+}
+.auth-photo-hint p{font-size:.8rem;color:var(--slate2);font-style:italic}
+.auth-photo-cap{
+  background:var(--n1);padding:1.3rem 1.8rem;
+  border-top:none;
+  display:flex;flex-direction:column;gap:3px;
+}
+.auth-photo-cap strong{font-family:var(--serif);font-size:1.1rem;color:var(--white);font-weight:600}
+.auth-photo-cap span{font-size:.68rem;color:var(--g2);letter-spacing:.08em;text-transform:uppercase}
+.auth-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:1.5rem}
+.atag{
+  background:var(--n1);color:var(--g2);
+  font-size:.65rem;letter-spacing:.06em;padding:5px 12px;
+  border:1px solid rgba(184,146,74,.2);text-transform:uppercase;font-weight:500;
+}
+
+.auth-content{padding-top:.5rem}
+.auth-quote{
+  font-family:var(--serif);font-size:1.65rem;font-style:italic;
+  color:var(--n1);line-height:1.45;margin-bottom:2rem;
+  padding-left:1.8rem;border-left:3px solid var(--g1);font-weight:600;
+  letter-spacing:-.01em;
+}
+.auth-bio{font-size:.93rem;color:var(--slate);line-height:1.85;margin-bottom:1.4rem}
+.auth-creds{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.5px;
+  background:rgba(184,146,74,.12);margin-top:2.5rem;
+}
+.ac-item{
+  background:var(--white);padding:1.5rem 1.8rem;
+  display:flex;gap:14px;align-items:flex-start;transition:background .3s;
+}
+.ac-item:hover{background:var(--n1)}
+.ac-item:hover .ac-t,.ac-item:hover .ac-d{color:var(--white)}
+.ac-dot{width:7px;height:7px;min-width:7px;background:var(--g1);margin-top:7px;flex-shrink:0}
+.ac-t{font-size:.82rem;color:var(--n1);font-weight:600;display:block;margin-bottom:3px;transition:color .3s}
+.ac-d{font-size:.78rem;color:var(--slate);line-height:1.5;transition:color .3s}
+
+/* ═══════════════════════════════════════════════════
+   METHOD
+═══════════════════════════════════════════════════ */
+#metodo{background:var(--white)}
+.method-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  position:relative;margin-top:1rem;
+}
+.method-grid::before{
+  content:'';position:absolute;top:44px;left:calc(12.5%);right:calc(12.5%);
+  height:1px;background:linear-gradient(to right,transparent,var(--g1),var(--g1),transparent);
+  z-index:0;
+}
+.mstep{text-align:center;padding:0 1.5rem 2rem;position:relative}
+.mstep-num{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--n1);border:2px solid var(--g1);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 2rem;font-family:var(--serif);font-weight:700;font-size:1.1rem;
+  color:var(--g1);position:relative;z-index:1;cursor:default;
+  transition:background .3s,color .3s;
+}
+.mstep:hover .mstep-num{background:var(--g1);color:var(--n1)}
+.mstep-t{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--n1);margin-bottom:.7rem}
+.mstep-d{font-size:.85rem;color:var(--slate);line-height:1.7}
+.mstep-sub{font-size:.7rem;color:var(--g1);letter-spacing:.06em;text-transform:uppercase;margin-top:.8rem;font-weight:600}
+
+/* ═══════════════════════════════════════════════════
+   SPECIALTIES
+═══════════════════════════════════════════════════ */
+#especialidades{background:var(--cream)}
+.spec-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:2px;background:rgba(184,146,74,.1);
+}
+.scard{
+  background:var(--white);padding:2.8rem 2.5rem;
+  position:relative;overflow:hidden;cursor:default;
+  transition:background .35s var(--ease);
+}
+.scard:hover{background:var(--n1)}
+.scard:hover .sc-tag{color:var(--g1);border-color:rgba(184,146,74,.35)}
+.scard:hover .sc-t{color:var(--white)}
+.scard:hover .sc-li{color:var(--slate2)}
+.scard:hover .sc-dot{background:var(--g1)}
+.scard::after{
+  content:'';position:absolute;left:0;top:0;bottom:100%;width:3px;
+  background:var(--g1);transition:bottom .4s var(--ease);
+}
+.scard:hover::after{bottom:0}
+.sc-tag{
+  font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);
+  border:1px solid rgba(184,146,74,.22);padding:4px 11px;
+  display:inline-block;margin-bottom:1.6rem;transition:all .35s;font-weight:500;
+}
+.sc-t{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--n1);margin-bottom:1.4rem;line-height:1.25;transition:color .35s;letter-spacing:-.01em}
+.sc-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.sc-li{
+  font-size:.85rem;color:var(--slate);line-height:1.6;
+  display:flex;align-items:flex-start;gap:11px;transition:color .35s;
+}
+.sc-dot{width:5px;height:5px;min-width:5px;background:rgba(184,146,74,.4);margin-top:7px;flex-shrink:0;transition:background .35s}
+
+/* ═══════════════════════════════════════════════════
+   COURSE
+═══════════════════════════════════════════════════ */
+#imersao{background:var(--n2);position:relative;overflow:hidden}
+#imersao .s-title{color:var(--white)}
+#imersao .s-sub{color:var(--slate2)}
+.course-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5px;background:rgba(184,146,74,.08);margin-bottom:3rem}
+.cmod{
+  background:rgba(255,255,255,.02);padding:2rem 1.5rem;
+  border:1px solid rgba(184,146,74,.06);
+  transition:background .3s,border-color .3s;
+}
+.cmod:hover{background:rgba(184,146,74,.08);border-color:rgba(184,146,74,.22)}
+.cmod-n{font-family:var(--serif);font-size:2.8rem;font-weight:700;color:rgba(184,146,74,.2);line-height:1;margin-bottom:1.2rem;letter-spacing:-.04em}
+.cmod-t{font-family:var(--serif);font-size:.98rem;color:var(--white);margin-bottom:1rem;line-height:1.35;font-weight:600}
+.cmod-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.cmod-li{font-size:.75rem;color:var(--slate2);display:flex;gap:7px;align-items:flex-start;line-height:1.45}
+.cmod-arr{color:var(--g1);font-size:.7rem;margin-top:2px;flex-shrink:0}
+
+.course-meta{
+  display:flex;align-items:center;gap:3rem;flex-wrap:wrap;
+  padding:1.8rem 2rem;
+  border:1px solid rgba(184,146,74,.15);background:rgba(255,255,255,.02);
+}
+.cm-item{display:flex;flex-direction:column;gap:3px}
+.cm-lbl{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g2);font-weight:600}
+.cm-val{font-family:var(--serif);font-size:1.05rem;color:var(--white);font-weight:600}
+
+/* ═══════════════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════════════ */
+#faq{background:var(--white)}
+.faq-wrap{max-width:740px}
+.fitem{border-bottom:1px solid rgba(184,146,74,.12)}
+.fq{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:1.5rem;padding:1.5rem 0;cursor:none;
+}
+.fq-t{font-family:var(--serif);font-size:1.05rem;color:var(--n1);font-weight:600;line-height:1.35}
+.ftog{
+  width:30px;height:30px;min-width:30px;
+  border:1px solid rgba(184,146,74,.25);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--g1);font-size:1.2rem;font-weight:300;
+  transition:background .25s,transform .25s;
+}
+.fitem.open .ftog{background:var(--g1);color:var(--n1);transform:rotate(45deg)}
+.fa{
+  max-height:0;overflow:hidden;
+  transition:max-height .4s var(--ease),padding .3s;
+  font-size:.9rem;color:var(--slate);line-height:1.8;padding-bottom:0;
+}
+.fitem.open .fa{max-height:400px;padding-bottom:1.5rem}
+
+/* ═══════════════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════════════ */
+#contato{background:var(--n1);position:relative;overflow:hidden}
+#contato::before{
+  content:'';position:absolute;bottom:-20%;left:-10%;
+  width:60%;padding-bottom:60%;border-radius:50%;
+  background:radial-gradient(circle,rgba(184,146,74,.05) 0%,transparent 70%);
+  pointer-events:none;
+}
+#contato .s-title{color:var(--white)}
+#contato .s-sub{color:var(--slate2)}
+
+.contact-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start}
+.cinfo{display:flex;flex-direction:column;gap:3rem}
+.cinfo-block{display:flex;flex-direction:column;gap:5px}
+.ci-lbl{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--g2);font-weight:600}
+.ci-val{font-family:var(--serif);font-size:1.15rem;color:var(--white);text-decoration:none;transition:color .2s;font-weight:600}
+.ci-val:hover{color:var(--g1)}
+.ci-sub{font-size:.8rem;color:var(--slate2);margin-top:2px}
+
+.cconfid{
+  padding:1.8rem;border:1px solid rgba(184,146,74,.15);background:rgba(184,146,74,.04);
+}
+.cconfid-t{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g2);font-weight:600;margin-bottom:.7rem}
+.cconfid-d{font-size:.82rem;color:var(--slate2);line-height:1.7}
+
+.cform{display:flex;flex-direction:column;gap:12px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ffield{display:flex;flex-direction:column;gap:5px}
+.ffield label{font-size:.65rem;letter-spacing:.07em;text-transform:uppercase;color:var(--g2);font-weight:600}
+.ffield input,.ffield select,.ffield textarea{
+  background:rgba(255,255,255,.04);border:1px solid rgba(184,146,74,.18);
+  color:var(--white);padding:12px 15px;font-size:.875rem;font-family:var(--sans);
+  outline:none;transition:border-color .2s,background .2s;resize:vertical;cursor:none;
+}
+.ffield input:focus,.ffield select:focus,.ffield textarea:focus{border-color:var(--g1);background:rgba(184,146,74,.05)}
+.ffield select option{background:var(--n1);color:var(--white)}
+.ffield input::placeholder,.ffield textarea::placeholder{color:rgba(90,112,128,.5)}
+.fsub{
+  background:var(--g1);color:var(--n1);border:none;
+  padding:15px;font-weight:700;font-size:.82rem;letter-spacing:.07em;
+  text-transform:uppercase;cursor:none;font-family:var(--sans);
+  transition:background .2s,transform .2s;display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:4px;
+}
+.fsub:hover{background:var(--g2);transform:translateY(-1px)}
+.fsub:disabled{background:var(--slate);cursor:default}
+.fprivacy{font-size:.7rem;color:var(--slate);line-height:1.5;text-align:center;margin-top:4px}
+
+/* ═══════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════ */
+footer{
+  background:var(--n0);border-top:1px solid rgba(184,146,74,.12);
+  padding:2rem clamp(1.5rem,5vw,5rem);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+}
+.fl{display:flex;flex-direction:column;gap:4px}
+.fl strong{font-family:var(--serif);color:rgba(255,255,255,.7);font-size:.88rem}
+.fl span{font-size:.68rem;color:var(--slate);letter-spacing:.04em}
+.fr{font-size:.68rem;color:var(--slate)}
+
+/* ═══════════════════════════════════════════════════
+   MOBILE MENU
+═══════════════════════════════════════════════════ */
+.mob-menu{
+  position:fixed;inset:0;background:var(--n0);z-index:190;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.mob-menu.open{opacity:1;pointer-events:all}
+.mob-menu a{
+  font-family:var(--serif);font-size:2.5rem;color:rgba(255,255,255,.6);
+  text-decoration:none;font-weight:600;letter-spacing:-.02em;
+  transition:color .2s;
+}
+.mob-menu a:hover{color:var(--g1)}
+.mob-close{
+  position:absolute;top:1.5rem;right:1.5rem;
+  font-size:1.5rem;color:var(--slate2);cursor:pointer;
+  background:none;border:none;font-family:var(--sans);
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════ */
+@media(max-width:1100px){
+  .auth-wrap{grid-template-columns:1fr}
+  .auth-photo{max-width:380px}
+  .sim-wrap{grid-template-columns:1fr}
+  .contact-wrap{grid-template-columns:1fr}
+  .course-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:800px){
+  .nav-links{display:none}
+  .nav-ham{display:flex}
+  .hero-h1{font-size:clamp(2.6rem,10vw,4rem)}
+  .diag-grid{grid-template-columns:1fr}
+  .spec-grid{grid-template-columns:1fr}
+  .method-grid{grid-template-columns:repeat(2,1fr)}
+  .method-grid::before{display:none}
+  .auth-creds{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .hero-stats{gap:1.5rem;flex-wrap:wrap}
+  .hero-cred{display:none}
+  .course-grid{grid-template-columns:1fr}
+  #cursor,#cursor-ring{display:none}
+  body{cursor:auto}
+  .btn,.fq,.ffield input,.ffield select,.ffield textarea,.fsub{cursor:pointer}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="toggleMenu()">✕</button>
+  <a href="#diagnostico" onclick="toggleMenu()">Diagnóstico</a>
+  <a href="#simulador" onclick="toggleMenu()">Simulador</a>
+  <a href="#experiencia" onclick="toggleMenu()">Experiência</a>
+  <a href="#metodo" onclick="toggleMenu()">Método IV</a>
+  <a href="#imersao" onclick="toggleMenu()">Imersão</a>
+  <a href="#contato" onclick="toggleMenu()" style="color:var(--g1)">Agendar →</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-mono">IV</div>
+    <div class="nav-id">
+      <strong>Ingeborg Voelz</strong>
+      <span>Gestão Executiva de Saúde</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#diagnostico">Diagnóstico</a></li>
+    <li><a href="#simulador">Simulador</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#metodo">Método IV</a></li>
+    <li><a href="#imersao">Imersão</a></li>
+    <li><a href="#contato" class="nav-cta">Agendar conversa</a></li>
+  </ul>
+  <div class="nav-ham" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-line"></div>
+
+  <div class="hero-top">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Consultoria Executiva · Blumenau SC
+    </div>
+    <div class="hero-cred">
+      <strong>CRA-SC 4439</strong>
+      <span>Registro ativo · 40+ anos</span>
+      <span>Hospital de Olhos de Blumenau</span>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <h1 class="hero-h1">
+      Sua clínica<br>
+      <em>governa seus</em><br>
+      <span class="thin">números —</span><br>
+      ou os teme?
+    </h1>
+    <p class="hero-sub">
+      Diagnóstico executivo para sócios de clínicas médicas e hospitais-dia. Contratos, glosas, indicadores e governança com base em 40 anos de operação hospitalar real.
+    </p>
+    <div class="hero-actions">
+      <a href="#contato" class="btn btn-gold">
+        Agendar diagnóstico <span class="btn-arrow">→</span>
+      </a>
+      <a href="#simulador" class="btn btn-outline">
+        Calcular minha perda
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <span class="hstat-val counter" data-target="40">0</span>
+        <span class="hstat-lbl">Anos de experiência</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-val counter" data-target="20" data-suffix="+">0</span>
+        <span class="hstat-lbl">Anos no HOB</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-val" style="font-size:1.5rem">30%</span>
+        <span class="hstat-lbl">Perda média por glosas¹</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-val">R$194k</span>
+        <span class="hstat-lbl">Economia tributária/ano²</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track" id="mtrack"></div>
+</div>
+
+<!-- DIAGNOSTIC -->
+<section class="section" id="diagnostico">
+  <div class="stag reveal">Onde está o problema</div>
+  <h2 class="s-title reveal" data-delay="1">Clareza antes<br>da decisão.</h2>
+  <p class="s-sub reveal" data-delay="2">O diagnóstico identifica onde a operação clínica pode estar perdendo eficiência, margem ou capacidade de negociação — antes de qualquer mudança.</p>
+
+  <div class="diag-grid">
+    <div class="diag-card reveal" data-delay="1">
+      <div class="dc-n">01</div>
+      <div class="dc-icon">◈</div>
+      <h3 class="dc-t">Glosas e Faturamento</h3>
+      <p class="dc-d">Revisão de autorizações, guias, recursos e rotinas que impactam a receita recebida. Glosas não controladas podem drenar até 30% do faturamento bruto mensal.</p>
+    </div>
+    <div class="diag-card reveal" data-delay="2">
+      <div class="dc-n">02</div>
+      <div class="dc-icon">◎</div>
+      <h3 class="dc-t">Contratos e Pacotes</h3>
+      <p class="dc-d">Análise de contratos, estruturação de pacotes globais (bundles) e oportunidades de previsibilidade no relacionamento com Unimed Blumenau, Clinipam e demais operadoras.</p>
+    </div>
+    <div class="diag-card reveal" data-delay="3">
+      <div class="dc-n">03</div>
+      <div class="dc-icon">◇</div>
+      <h3 class="dc-t">Indicadores e Governança</h3>
+      <p class="dc-d">Organização de KPIs operacionais, rituais de gestão, responsabilidades entre sócios e critérios de decisão — da DRE ao rateio de custos fixos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SIMULATOR -->
+<section class="section" id="simulador">
+  <div class="stag reveal">Simulador Financeiro</div>
+  <h2 class="s-title reveal" data-delay="1" style="color:var(--white)">Quanto a sua clínica<br>perde por mês?</h2>
+  <p class="s-sub reveal" data-delay="2">Ajuste os valores abaixo e veja o impacto estimado das glosas não recuperadas no seu faturamento.</p>
+
+  <div class="sim-wrap">
+    <div class="sim-sliders reveal-l">
+      <div class="sfield">
+        <label>
+          Faturamento mensal via convênios
+          <span id="sFat">R$ 200.000</span>
+        </label>
+        <input type="range" id="slFat" min="50000" max="700000" step="10000" value="200000">
+        <div class="sfield-hint">Soma total faturada às operadoras por mês</div>
+      </div>
+      <div class="sfield">
+        <label>
+          Taxa inicial de glosa
+          <span id="sGlosa">15%</span>
+        </label>
+        <input type="range" id="slGlosa" min="3" max="35" step="1" value="15">
+        <div class="sfield-hint">Média nacional: 15,89% (Anahp 2025)</div>
+      </div>
+      <div class="sfield">
+        <label>
+          Efetividade dos seus recursos
+          <span id="sRecurso">30%</span>
+        </label>
+        <input type="range" id="slRecurso" min="0" max="95" step="5" value="30">
+        <div class="sfield-hint">% das glosas que você realmente recupera</div>
+      </div>
+      <a href="#contato" class="btn btn-gold" style="margin-top:1rem">
+        Quero diagnóstico real <span class="btn-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="sim-panel reveal-r">
+      <div class="sim-row">
+        <span class="sim-lbl">Faturamento bruto mensal</span>
+        <span class="sim-val" id="rFat">R$ 200.000</span>
+      </div>
+      <div class="sim-row">
+        <span class="sim-lbl">Glosa não recuperada / mês</span>
+        <span class="sim-val red" id="rPerda">—</span>
+      </div>
+      <div>
+        <div class="sim-gauge"><div class="sim-gauge-fill" id="rGauge" style="width:0%"></div></div>
+        <div class="sim-gauge-label"><span>Baixo risco</span><span>Alto risco</span></div>
+      </div>
+      <div class="sim-row">
+        <span class="sim-lbl">Receita líquida efetivamente recebida</span>
+        <span class="sim-val" id="rLiq">—</span>
+      </div>
+      <div class="sim-row">
+        <span class="sim-lbl" style="color:var(--g2);font-weight:600">Perda anual estimada</span>
+        <span class="sim-val gold" id="rAnual">—</span>
+      </div>
+      <p class="sim-note">
+        ¹ IESS — Instituto de Estudos de Saúde Suplementar.&nbsp; ² Calculado com base na Lei 9.249/95 e Tema 217 STJ, para clínica com R$300k/mês em procedimentos. Esta é uma estimativa educativa — o diagnóstico real depende de contratos, guias e rotinas internas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHORITY -->
+<section class="section" id="experiencia">
+  <div class="stag reveal">Autoridade</div>
+  <h2 class="s-title reveal" data-delay="1">40 anos de gestão<br>hospitalar <em style="font-style:italic;color:var(--g1)">real.</em></h2>
+
+  <div class="auth-wrap">
+    <div class="auth-photo reveal-l">
+      <div class="auth-photo-inner">
+        <div class="auth-photo-hint">
+          <div class="auth-mono">IV</div>
+          <p>Foto profissional<br>a inserir aqui</p>
+        </div>
+        <div class="auth-photo-cap">
+          <strong>Ingeborg Voelz</strong>
+          <span>Administradora Hospitalar · CRA-SC 4439</span>
+        </div>
+      </div>
+      <div class="auth-tags">
+        <span class="atag">MBA Gestão Hospitalar</span>
+        <span class="atag">MBA Estratégia</span>
+        <span class="atag">Contabilidade Empresarial</span>
+        <span class="atag">ONA · SGQ</span>
+        <span class="atag">Controladoria</span>
+        <span class="atag">Psicologia Org.</span>
+      </div>
+    </div>
+
+    <div class="auth-content reveal-r">
+      <blockquote class="auth-quote">
+        "Uma clínica que não conhece seus números não governa seu futuro — é governada por ele."
+      </blockquote>
+
+      <p class="auth-bio">
+        Administradora hospitalar com atuação contínua desde 2004 no Hospital de Olhos de Blumenau (HOB), maior referência em oftalmologia cirúrgica de Santa Catarina. Ao longo de mais de quatro décadas, acumulou domínio técnico em todas as dimensões críticas da gestão de saúde privada.
+      </p>
+      <p class="auth-bio">
+        Sua experiência abrange credenciamento de operadoras, estruturação de contratos e pacotes, auditoria de glosas, gestão financeira com DRE, ONA, SGQ, LGPD, gerenciamento de risco e liderança de equipes multidisciplinares em ambientes de alta complexidade regulatória.
+      </p>
+      <p class="auth-bio">
+        Participante do XI Congresso Internacional de Administração em Oftalmologia. Reconhecida como referência em governança clínica, qualidade assistencial e reestruturação financeira de operações hospitalares no Vale do Itajaí.
+      </p>
+
+      <div class="auth-creds">
+        <div class="ac-item reveal" data-delay="1">
+          <div class="ac-dot"></div>
+          <div>
+            <span class="ac-t">Hospital de Olhos de Blumenau</span>
+            <span class="ac-d">Gestão executiva por 20+ anos na maior referência oftalmológica do Vale do Itajaí</span>
+          </div>
+        </div>
+        <div class="ac-item reveal" data-delay="2">
+          <div class="ac-dot"></div>
+          <div>
+            <span class="ac-t">Contratos com Operadoras</span>
+            <span class="ac-d">Unimed Blumenau e Clinipam — negociação, pacotes globais e auditoria de glosas</span>
+          </div>
+        </div>
+        <div class="ac-item reveal" data-delay="3">
+          <div class="ac-dot"></div>
+          <div>
+            <span class="ac-t">Qualidade e Processos</span>
+            <span class="ac-d">ONA, SGQ, LGPD, Vigilância Sanitária, protocolos assistenciais e jornada do paciente</span>
+          </div>
+        </div>
+        <div class="ac-item reveal" data-delay="4">
+          <div class="ac-dot"></div>
+          <div>
+            <span class="ac-t">Formação Executiva Avançada</span>
+            <span class="ac-d">MBAs em Gestão Hospitalar Estratégica, Estratégia Empresarial, Contabilidade e Controladoria</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="section" id="metodo">
+  <div class="stag reveal">Método IV</div>
+  <h2 class="s-title reveal" data-delay="1">Da gestão reativa<br>à clínica <em style="font-style:italic;color:var(--g1)">governável.</em></h2>
+  <p class="s-sub reveal" data-delay="2">Quatro etapas que transformam decisões dispersas em plano de ação com responsáveis, prazos e indicadores mensuráveis.</p>
+
+  <div class="method-grid">
+    <div class="mstep reveal" data-delay="1">
+      <div class="mstep-num">1</div>
+      <h3 class="mstep-t">Diagnosticar</h3>
+      <p class="mstep-d">Contratos, faturamento, glosas, fluxos, governança, equipe e experiência do paciente. Mapeamento completo sem palpites.</p>
+      <div class="mstep-sub">30 dias</div>
+    </div>
+    <div class="mstep reveal" data-delay="2">
+      <div class="mstep-num">2</div>
+      <h3 class="mstep-t">Quantificar</h3>
+      <p class="mstep-d">Perdas mensuráveis, riscos reais, gargalos operacionais e oportunidades com potencial financeiro calculado.</p>
+      <div class="mstep-sub">Semana 5–6</div>
+    </div>
+    <div class="mstep reveal" data-delay="3">
+      <div class="mstep-num">3</div>
+      <h3 class="mstep-t">Redesenhar</h3>
+      <p class="mstep-d">Protocolos, responsabilidades, painéis de decisão, rotinas e plano de ação ajustados à realidade da sua clínica.</p>
+      <div class="mstep-sub">Semana 7–9</div>
+    </div>
+    <div class="mstep reveal" data-delay="4">
+      <div class="mstep-num">4</div>
+      <h3 class="mstep-t">Acompanhar</h3>
+      <p class="mstep-d">Ciclos de 30, 60 e 90 dias com metas, responsáveis e avaliação executiva. Resultados auditados.</p>
+      <div class="mstep-sub">Meses 2–4</div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALTIES -->
+<section class="section" id="especialidades">
+  <div class="stag reveal">Perfis Atendidos</div>
+  <h2 class="s-title reveal" data-delay="1">Cada especialidade<br>tem sua geometria<br>de risco própria.</h2>
+
+  <div class="spec-grid">
+    <div class="scard reveal" data-delay="1">
+      <span class="sc-tag">Maior demanda regional</span>
+      <h3 class="sc-t">Oftalmologia e Hospitais-Dia</h3>
+      <ul class="sc-list">
+        <li class="sc-li"><span class="sc-dot"></span>Pacotes cirúrgicos: catarata, refrativa, vitreorretina</li>
+        <li class="sc-li"><span class="sc-dot"></span>Auditoria de glosas TISS/TUSS em exames de alta precisão</li>
+        <li class="sc-li"><span class="sc-dot"></span>Credenciamento e contratos com Unimed Blumenau e Clinipam</li>
+        <li class="sc-li"><span class="sc-dot"></span>Conformidade RDC-Anvisa para centros cirúrgicos</li>
+        <li class="sc-li"><span class="sc-dot"></span>KPI de conversão consulta → cirurgia</li>
+      </ul>
+    </div>
+    <div class="scard reveal" data-delay="2">
+      <span class="sc-tag">Alta complexidade</span>
+      <h3 class="sc-t">Ortopedia e Reabilitação</h3>
+      <ul class="sc-list">
+        <li class="sc-li"><span class="sc-dot"></span>Gestão de OPME — controle, custo e faturamento</li>
+        <li class="sc-li"><span class="sc-dot"></span>Pacotes para artroscopias e cirurgias articulares</li>
+        <li class="sc-li"><span class="sc-dot"></span>Ecossistema integrado: imagem + fisioterapia + cirurgia</li>
+        <li class="sc-li"><span class="sc-dot"></span>Rateio de custos em clínicas multi-sócio</li>
+        <li class="sc-li"><span class="sc-dot"></span>Taxa de ocupação de salas e absenteísmo</li>
+      </ul>
+    </div>
+    <div class="scard reveal" data-delay="3">
+      <span class="sc-tag">Alto ticket particular</span>
+      <h3 class="sc-t">Cirurgia Plástica e Estética</h3>
+      <ul class="sc-list">
+        <li class="sc-li"><span class="sc-dot"></span>Transição de consultório dependente para clínica institucional</li>
+        <li class="sc-li"><span class="sc-dot"></span>Portfólio de procedimentos não-cirúrgicos recorrentes</li>
+        <li class="sc-li"><span class="sc-dot"></span>Publicidade médica ética — Manual CFM</li>
+        <li class="sc-li"><span class="sc-dot"></span>Experiência do paciente premium do primeiro contato ao pós-op</li>
+        <li class="sc-li"><span class="sc-dot"></span>Estratégias de retenção e fidelização (LTV)</li>
+      </ul>
+    </div>
+    <div class="scard reveal" data-delay="4">
+      <span class="sc-tag">Governança e escalabilidade</span>
+      <h3 class="sc-t">Clínicas Multi e Sociedades</h3>
+      <ul class="sc-list">
+        <li class="sc-li"><span class="sc-dot"></span>Acordo de sócios: entrada, saída, sucessão, dividendos</li>
+        <li class="sc-li"><span class="sc-dot"></span>Modelo de partnership para retenção de médicos juniores</li>
+        <li class="sc-li"><span class="sc-dot"></span>Preparação para M&amp;A — venda ou fusão com grupos de saúde</li>
+        <li class="sc-li"><span class="sc-dot"></span>Organograma, alçadas e mapa de responsabilidades</li>
+        <li class="sc-li"><span class="sc-dot"></span>Transição da marca pessoal para identidade institucional</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE -->
+<section class="section" id="imersao">
+  <div class="stag reveal">Educação Executiva</div>
+  <h2 class="s-title reveal" data-delay="1" style="color:var(--white)">Imersão para sócios<br>e gestores de clínicas.</h2>
+  <p class="s-sub reveal" data-delay="2">40 horas práticas. Formato híbrido. Ferramentas reais, casos locais do Vale do Itajaí e resultados mensuráveis.</p>
+
+  <div class="course-grid">
+    <div class="cmod reveal" data-delay="1">
+      <div class="cmod-n">01</div>
+      <h4 class="cmod-t">Engenharia Tributária e Equiparação Hospitalar</h4>
+      <ul class="cmod-list">
+        <li class="cmod-li"><span class="cmod-arr">→</span>Lei 9.249/95 e Tema 217 STJ</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>Redução de até 70% de IRPJ/CSLL</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>Recuperação retroativa 5 anos</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>Simulação de viabilidade contábil</li>
+      </ul>
+    </div>
+    <div class="cmod reveal" data-delay="2">
+      <div class="cmod-n">02</div>
+      <h4 class="cmod-t">Contratos, Pacotes e Auditoria de Glosas</h4>
+      <ul class="cmod-list">
+        <li class="cmod-li"><span class="cmod-arr">→</span>Modelagem técnica de bundles cirúrgicos</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>Padrão TISS/TUSS e codificação</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>Auditoria interna preventiva</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>Recursos e negociação com operadoras</li>
+      </ul>
+    </div>
+    <div class="cmod reveal" data-delay="3">
+      <div class="cmod-n">03</div>
+      <h4 class="cmod-t">Qualidade, Processos e KPIs</h4>
+      <ul class="cmod-list">
+        <li class="cmod-li"><span class="cmod-arr">→</span>No-show, CAC, taxa de conversão</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>Painel de gestão em PowerBI</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>RDCs Anvisa aplicáveis</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>Capacidade instalada e turnover</li>
+      </ul>
+    </div>
+    <div class="cmod reveal" data-delay="4">
+      <div class="cmod-n">04</div>
+      <h4 class="cmod-t">Governança Societária e Partnership</h4>
+      <ul class="cmod-list">
+        <li class="cmod-li"><span class="cmod-arr">→</span>Acordo de sócios e governança</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>Rateio de custos fixos e variáveis</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>Modelo de vesting / partnership</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>Planejamento para M&amp;A</li>
+      </ul>
+    </div>
+    <div class="cmod reveal" data-delay="5">
+      <div class="cmod-n">05</div>
+      <h4 class="cmod-t">Posicionamento Premium e Escalabilidade</h4>
+      <ul class="cmod-list">
+        <li class="cmod-li"><span class="cmod-arr">→</span>Construção de marca institucional</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>Jornada do paciente premium</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>Receitas recorrentes não-médicas</li>
+        <li class="cmod-li"><span class="cmod-arr">→</span>Publicidade ética CFM</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="course-meta reveal" data-delay="2">
+    <div class="cm-item">
+      <span class="cm-lbl">Carga Horária</span>
+      <span class="cm-val">40 horas</span>
+    </div>
+    <div class="cm-item">
+      <span class="cm-lbl">Duração</span>
+      <span class="cm-val">10 semanas</span>
+    </div>
+    <div class="cm-item">
+      <span class="cm-lbl">Formato</span>
+      <span class="cm-val">Híbrido — presencial + digital</span>
+    </div>
+    <div class="cm-item">
+      <span class="cm-lbl">Público</span>
+      <span class="cm-val">Sócios, Diretores e Gestores de Clínicas</span>
+    </div>
+    <a href="#contato" class="btn btn-gold" style="margin-left:auto">
+      Solicitar informações <span class="btn-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="stag reveal">Perguntas Frequentes</div>
+  <h2 class="s-title reveal" data-delay="1">Antes de iniciar<br>um diagnóstico.</h2>
+  <div class="faq-wrap">
+
+    <div class="fitem">
+      <div class="fq" onclick="toggleFaq(this)">
+        <span class="fq-t">Isso substitui contador, advogado ou consultor regulatório?</span>
+        <div class="ftog">+</div>
+      </div>
+      <div class="fa">A consultoria organiza a visão executiva, identifica riscos e coordena prioridades. Questões fiscais, jurídicas e regulatórias devem ser validadas pelos profissionais responsáveis. Atuamos de forma complementar — não substituta — trazendo a leitura de quem conhece a operação hospitalar por dentro.</div>
+    </div>
+
+    <div class="fitem">
+      <div class="fq" onclick="toggleFaq(this)">
+        <span class="fq-t">O diagnóstico é indicado para qualquer clínica?</span>
+        <div class="ftog">+</div>
+      </div>
+      <div class="fa">O foco primário são clínicas médicas, hospitais-dia e sociedades médicas com equipe estruturada, faturamento relevante via convênio e procedimentos cirúrgicos ou diagnósticos. Atendemos com prioridade Blumenau e Vale do Itajaí, mas podemos avaliar outros municípios de SC.</div>
+    </div>
+
+    <div class="fitem">
+      <div class="fq" onclick="toggleFaq(this)">
+        <span class="fq-t">Como funciona a primeira conversa?</span>
+        <div class="ftog">+</div>
+      </div>
+      <div class="fa">É uma conversa técnica reservada de 30 a 40 minutos, sem apresentação de produtos e sem compromisso. Mapeamos o contexto da clínica, identificamos os maiores pontos de risco e definimos juntos se faz sentido avançar para um diagnóstico executivo completo.</div>
+    </div>
+
+    <div class="fitem">
+      <div class="fq" onclick="toggleFaq(this)">
+        <span class="fq-t">Qual o retorno financeiro esperado?</span>
+        <div class="ftog">+</div>
+      </div>
+      <div class="fa">Varia conforme porte e maturidade da clínica. Em geral, reestruturação de contratos e auditoria de glosas representam incremento de 10% a 20% na margem líquida já no primeiro trimestre. A equiparação tributária pode gerar economia superior a R$190 mil anuais para uma clínica com R$300k/mês em procedimentos. Os números reais são calculados no diagnóstico.</div>
+    </div>
+
+    <div class="fitem">
+      <div class="fq" onclick="toggleFaq(this)">
+        <span class="fq-t">A consultoria inclui implementação ou só diagnóstico?</span>
+        <div class="ftog">+</div>
+      </div>
+      <div class="fa">Depende da modalidade contratada. Oferecemos diagnóstico isolado, plano de ação estruturado, ou acompanhamento executivo em ciclos mensais. A combinação mais comum: diagnóstico + redesenho de processos + acompanhamento por 3 ciclos de 30 dias com metas mensuráveis.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contato">
+  <div class="stag reveal">Próximo Passo</div>
+  <h2 class="s-title reveal" data-delay="1" style="color:var(--white)">Agende uma conversa<br><em style="font-style:italic;color:var(--g1)">reservada.</em></h2>
+  <p class="s-sub reveal" data-delay="2">Primeira conversa sem custo e sem compromisso. Entendemos o contexto da sua clínica e avaliamos juntos se faz sentido avançar.</p>
+
+  <div class="contact-wrap">
+    <div class="cinfo reveal-l">
+      <div class="cinfo-block">
+        <span class="ci-lbl">WhatsApp direto</span>
+        <a href="https://wa.me/5547999796000" class="ci-val">(47) 99979-6000</a>
+        <span class="ci-sub">Resposta em até 24h em dias úteis</span>
+      </div>
+      <div class="cinfo-block">
+        <span class="ci-lbl">E-mail</span>
+        <a href="mailto:ingevoelz@yahoo.com.br" class="ci-val">ingevoelz@yahoo.com.br</a>
+      </div>
+      <div class="cinfo-block">
+        <span class="ci-lbl">Área de atendimento prioritário</span>
+        <span class="ci-val" style="cursor:default">Blumenau · Vale do Itajaí · SC</span>
+      </div>
+      <div class="cconfid">
+        <div class="cconfid-t">Compromisso de confidencialidade</div>
+        <p class="cconfid-d">Todas as informações compartilhadas são tratadas com absoluto sigilo. Nenhum dado da sua clínica é divulgado ou compartilhado com terceiros.</p>
+      </div>
+    </div>
+
+    <form class="cform reveal-r" id="cform" onsubmit="handleSubmit(event)">
+      <div class="frow">
+        <div class="ffield">
+          <label>Nome completo</label>
+          <input type="text" placeholder="Dr(a). Nome Sobrenome" required>
+        </div>
+        <div class="ffield">
+          <label>E-mail</label>
+          <input type="email" placeholder="email@clinica.com.br" required>
+        </div>
+      </div>
+      <div class="frow">
+        <div class="ffield">
+          <label>Clínica / Especialidade</label>
+          <input type="text" placeholder="Oftalmologia, Ortopedia...">
+        </div>
+        <div class="ffield">
+          <label>WhatsApp</label>
+          <input type="tel" placeholder="(47) 9xxxx-xxxx">
+        </div>
+      </div>
+      <div class="ffield">
+        <label>Principal prioridade</label>
+        <select>
+          <option disabled selected>Selecione o foco principal</option>
+          <option>Glosas e faturamento</option>
+          <option>Contratos com operadoras</option>
+          <option>Governança societária</option>
+          <option>KPIs e DRE gerencial</option>
+          <option>Qualidade e processos</option>
+          <option>Imersão executiva (curso)</option>
+        </select>
+      </div>
+      <div class="ffield">
+        <label>Faturamento via operadoras</label>
+        <select>
+          <option disabled selected>Selecione a faixa mensal</option>
+          <option>Prefiro informar na conversa</option>
+          <option>Até R$ 100 mil/mês</option>
+          <option>R$ 100 mil a R$ 300 mil/mês</option>
+          <option>R$ 300 mil a R$ 700 mil/mês</option>
+          <option>Acima de R$ 700 mil/mês</option>
+        </select>
+      </div>
+      <div class="ffield">
+        <label>Mensagem (opcional)</label>
+        <textarea rows="3" placeholder="Contexto adicional ou dúvidas..."></textarea>
+      </div>
+      <button type="submit" class="fsub" id="fsubBtn">
+        Enviar e agendar conversa <span>→</span>
+      </button>
+      <p class="fprivacy">Ao enviar, a solicitação vai direto para Ingeborg Voelz. Sem intermediários.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fl">
+    <strong>Inge Voelz | Consultoria Executiva em Gestão de Saúde</strong>
+    <span>CRA-SC 4439 · Blumenau · Vale do Itajaí · Santa Catarina</span>
+  </div>
+  <div class="fr">© 2025 Ingeborg Voelz Consultoria. Todos os direitos reservados.</div>
+</footer>
+
+<script>
+/* ─── CURSOR ──────────────────── */
+const cur = document.getElementById('cursor');
+const curR = document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+});
+function animCursor(){
+  rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+  curR.style.left=rx+'px';curR.style.top=ry+'px';
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+document.querySelectorAll('a,button,input,select,textarea,[onclick]').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cur.style.width='14px';cur.style.height='14px';cur.style.background='var(--g2)';
+    curR.style.width='48px';curR.style.height='48px';curR.style.opacity='.5';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cur.style.width='8px';cur.style.height='8px';cur.style.background='var(--g1)';
+    curR.style.width='32px';curR.style.height='32px';curR.style.opacity='1';
+  });
+});
+
+/* ─── NAV SCROLL ──────────────── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',scrollY>30);
+},{ passive:true });
+
+/* ─── MOBILE MENU ──────────────── */
+function toggleMenu(){
+  document.getElementById('mobMenu').classList.toggle('open');
+}
+
+/* ─── MARQUEE ──────────────────── */
+const mItems=[
+  '40 anos de experiência hospitalar',
+  'Redução de até <b>70%</b> de IRPJ/CSLL',
+  'Auditoria de glosas TISS/TUSS',
+  'Hospital de Olhos de Blumenau — HOB',
+  'Pacotes cirúrgicos e contratos Unimed',
+  'Método IV — diagnóstico · quantificação · redesenho · acompanhamento',
+  'CRA-SC 4439 · Registro ativo',
+  'ONA · SGQ · Qualidade Assistencial',
+  'Blumenau · Vale do Itajaí · SC',
+  'Equiparação Hospitalar — Lei 9.249/95',
+];
+const track=document.getElementById('mtrack');
+const full=[...mItems,...mItems].map(t=>`<span class="marquee-item"><span class="marquee-dot"></span>${t}</span>`).join('');
+track.innerHTML=full+full;
+
+/* ─── SIMULATOR ───────────────── */
+function fmt(n){return'R$ '+Math.round(n).toLocaleString('pt-BR')}
+function setRange(el,pct){el.style.setProperty('--pct',pct+'%')}
+
+const slFat=document.getElementById('slFat');
+const slGlosa=document.getElementById('slGlosa');
+const slRecurso=document.getElementById('slRecurso');
+
+function calc(){
+  const f=+slFat.value,g=+slGlosa.value/100,r=+slRecurso.value/100;
+  document.getElementById('sFat').textContent=fmt(f);
+  document.getElementById('sGlosa').textContent=slGlosa.value+'%';
+  document.getElementById('sRecurso').textContent=slRecurso.value+'%';
+
+  const fatPct=(f-50000)/(700000-50000)*100;
+  const glosaPct=(slGlosa.value-3)/(35-3)*100;
+  const recurPct=(slRecurso.value)/(95)*100;
+  setRange(slFat,fatPct);
+  setRange(slGlosa,glosaPct);
+  setRange(slRecurso,recurPct);
+
+  const gTotal=f*g,gRecup=gTotal*r,perda=gTotal-gRecup,liq=f-perda;
+  document.getElementById('rFat').textContent=fmt(f);
+  document.getElementById('rPerda').textContent=fmt(perda);
+  document.getElementById('rLiq').textContent=fmt(liq);
+  document.getElementById('rAnual').textContent=fmt(perda*12);
+  const riskPct=Math.min(100,(perda/f)*100*2);
+  document.getElementById('rGauge').style.width=riskPct+'%';
+}
+
+slFat.addEventListener('input',calc);
+slGlosa.addEventListener('input',calc);
+slRecurso.addEventListener('input',calc);
+calc();
+
+/* ─── COUNTER ─────────────────── */
+function countUp(el){
+  const target=+el.dataset.target,suffix=el.dataset.suffix||'+';
+  let start=0,dur=1600,step=dur/target;
+  const t=setInterval(()=>{
+    start++;el.textContent=start+suffix;
+    if(start>=target)clearInterval(t);
+  },step);
+}
+
+/* ─── SCROLL REVEAL ───────────── */
+const rObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      if(e.target.classList.contains('counter'))countUp(e.target);
+    }
+  });
+},{threshold:.12});
+
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r,.counter').forEach(el=>rObs.observe(el));
+
+/* ─── FAQ ─────────────────────── */
+function toggleFaq(btn){
+  const item=btn.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.fitem').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}
+
+/* ─── FORM SUBMIT ─────────────── */
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=document.getElementById('fsubBtn');
+  btn.disabled=true;
+  btn.innerHTML='Enviado ✓ — Ingeborg Voelz entrará em contato em breve.';
+  btn.style.background='#2d5a35';btn.style.color='#fff';
+  setTimeout(()=>{
+    window.open('https://wa.me/5547999796000?text=Olá+Ingeborg%2C+preenchi+o+formulário+do+seu+site+e+gostaria+de+agendar+uma+conversa+sobre+consultoria+para+minha+clínica.','_blank');
+  },800);
+}
+</script>
+</body>
+</html>
