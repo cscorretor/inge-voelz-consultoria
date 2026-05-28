@@ -1,1 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingeborg Voelz | Consultoria Executiva para Clínicas</title>
+    <style>
+        /* Variáveis de Cores Premium */
+        :root {
+            --bg-dark: #070e17;
+            --bg-navy: #0b1626;
+            --gold: #d4af37;
+            --gold-hover: #b5952f;
+            --text-light: #e2e8f0;
+            --text-muted: #94a3b8;
+            --white: #ffffff;
+        }
 
+        /* Reset e Tipografia */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        /* Navegação */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            background-color: rgba(7, 14, 23, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-iv {
+            color: var(--gold);
+            font-weight: 600;
+            border: 1px solid var(--gold);
+            padding: 5px 10px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--gold);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gold);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gold);
+            color: var(--bg-dark);
+        }
+
+        /* Seção Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            background: radial-gradient(circle at top right, var(--bg-navy), var(--bg-dark));
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        /* Pilares de Atuação */
+        .expertise {
+            padding: 8rem 5%;
+            background-color: var(--bg-navy);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-dark);
+            padding: 3rem 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Seção A Consultora */
+        .about {
+            padding: 8rem 5%;
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .about-image {
+            flex: 1;
+            height: 500px;
+            background-color: var(--bg-navy);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Placeholder para a foto de estúdio recomendada */
+        .photo-placeholder {
+            color: var(--text-muted);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            border: 1px dashed var(--gold);
+            margin: 2rem;
+        }
+
+        /* Call to Action */
+        .cta {
+            padding: 6rem 5%;
+            text-align: center;
+            background: linear-gradient(rgba(7, 14, 23, 0.9), rgba(7, 14, 23, 0.9)), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHYxSDB6IiBmaWxsPSJyZ2JhKDIxMiwgMTc1LCA1NSwgMC4wNSkiLz4KPHBhdGggZD0iTTAgMHgxdjQwSDB6IiBmaWxsPSJyZ2JhKDIxMiwgMTc1LCA1NSwgMC4wNSkiLz4KPC9zdmc+');
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--bg-dark);
+            padding: 4rem 5% 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            width: 100%;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Animações Iniciais */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Classes para Scroll Animation via JS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about { flex-direction: column; }
+            .nav-links { display: none; } /* Menu hamburguer seria implementado aqui */
+        }
+    </style>
+    <!-- Importando fontes geométricas e elegantes do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navegação -->
+    <nav>
+        <a href="#" class="logo">
+            <span class="logo-iv">IV</span>
+            Ingeborg Voelz
+        </a>
+        <div class="nav-links">
+            <a href="#expertise">Soluções</a>
+            <a href="#sobre">A Consultora</a>
+            <a href="#cta" class="btn btn-outline" style="padding: 0.5rem 1.5rem; margin-left: 2rem;">Diagnóstico</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>A medicina avançou. <br><span>A gestão da sua clínica acompanhou?</span></h1>
+            <p>Transformamos clínicas e hospitais especializados em operações de alta performance. Maximização de lucro, estancamento de perdas e governança estruturada sem achismos.</p>
+            <div style="display: flex; gap: 1rem;">
+                <a href="#cta" class="btn">Agendar Sessão Estratégica</a>
+                <a href="#expertise" class="btn btn-outline">Conhecer o Método</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilares de Atuação -->
+    <section id="expertise" class="expertise">
+        <div class="section-header reveal">
+            <p>Engrenagens de Crescimento</p>
+            <h2>Pilares da Consultoria Executiva</h2>
+        </div>
+        <div class="grid-cards">
+            <!-- Card 1 -->
+            <div class="card reveal">
+                <div class="card-icon">📊</div>
+                <h3>Diagnóstico e Auditoria</h3>
+                <p>Análise profunda de dados e mapeamento da linha de base atual da sua clínica. Identificação rigorosa de vazamentos de receita, falhas de contrato e glosas.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="card reveal">
+                <div class="card-icon">💼</div>
+                <h3>Estruturação Financeira</h3>
+                <p>Desenvolvimento de DRE, previsibilidade de fluxo de caixa e separação inteligente de contas (CNPJ x CPF). Precificação orientada a lucro, não apenas a volume.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="card reveal">
+                <div class="card-icon">⚙️</div>
+                <h3>Eficiência Operacional</h3>
+                <p>Otimização de rotinas da recepção, redução drástica do índice de faltas (no-show) e maximização da taxa de ocupação das salas de atendimento.</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="card reveal">
+                <div class="card-icon">🎯</div>
+                <h3>Arquitetura Comercial</h3>
+                <p>Implementação de funil de vendas ativo, integração com WhatsApp API e sistemas de Inteligência Artificial para qualificação de pacientes de alto valor (Lead Scoring).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre a Consultora -->
+    <section id="sobre" class="about">
+        <div class="about-image reveal">
+            <!-- Espaço reservado para a foto corporativa de estúdio -->
+            <div class="photo-placeholder">
+                [INSERIR RETRATO PROFISSIONAL AQUI]<br><br>
+                Foto com iluminação dramática, ângulo na altura dos olhos, vestindo alfaiataria em tons sóbrios. Semiótica de autoridade e estratégia.
+            </div>
+        </div>
+        <div class="about-text reveal">
+            <h2>Estratégia Baseada em Fatos, Não em Intuição.</h2>
+            <p><strong>Ingeborg Voelz</strong> não é mais uma voz teórica no mercado de saúde. É a arquiteta por trás de operações clínicas previsíveis e escaláveis.</p>
+            <p>Enquanto o corpo médico foca na excelência técnica e no cuidado com o paciente, Ingeborg estrutura os bastidores: governança, processos e métricas financeiras. Seu objetivo é garantir que clínicas de pequeno e médio porte, bem como hospitais especializados, parem de deixar dinheiro na mesa por ineficiências operacionais.</p>
+            <p>Sua abordagem une conformidade rigorosa com as normas do Conselho Federal de Medicina a práticas avançadas de mercado corporativo.</p>
+            <br>
+            <a href="#cta" class="btn btn-outline">Solicitar Auditoria</a>
+        </div>
+    </section>
+
+    <!-- Call to Action (Conversão) -->
+    <section id="cta" class="cta">
+        <div class="reveal">
+            <h2>Pronto para assumir o controle dos seus números?</h2>
+            <p>O crescimento sustentável de uma instituição de saúde exige alocação estratégica de recursos e revisão de dados implacável. Aplique para uma Sessão Estratégica de Diagnóstico e descubra os gargalos ocultos da sua operação.</p>
+            <a href="#" class="btn">Aplicar para Diagnóstico Executivo</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 1.5rem;">
+                    <span class="logo-iv">IV</span>
+                </div>
+                <p>Consultoria executiva especializada em inteligência financeira e eficiência operacional para o mercado de saúde suplementar.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <a href="#expertise">Soluções Financeiras</a>
+                <a href="#expertise">Engenharia Operacional</a>
+                <a href="#sobre">A Consultora</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contato Estratégico</h4>
+                <p>Blumenau, Santa Catarina</p>
+                <p>contato@ingeborgvoelz.com.br</p>
+                <p>Atendimento Nacional</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ingeborg Voelz Consultoria Executiva. Todos os direitos reservados. Design alinhado às diretrizes de Governança Digital.</p>
+        </div>
+    </footer>
+
+    <!-- Script para animações de rolagem (Scroll Reveal) -->
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Disparar uma vez no carregamento
+        reveal();
+    </script>
+</body>
+</html>
