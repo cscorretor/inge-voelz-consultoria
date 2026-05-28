@@ -43,23 +43,23 @@
   --paper-4:  #d4c9b1;
 
   /* Linhas */
-  --rule:     rgba(28,28,26,.16);
-  --rule-2:   rgba(28,28,26,.09);
+  --rule:      rgba(28,28,26,.16);
+  --rule-2:    rgba(28,28,26,.09);
 
   /* Texto secundário */
   --mute:     #6f695e;
-  --mute-2:   #8a8478;
-  --mute-3:   #a89e8c;
+  --mute-2:    #8a8478;
+  --mute-3:    #a89e8c;
 
   /* Acento — sage profundo, quieto */
   --sage:     #3b4a3e;
-  --sage-2:   #4d5e51;
-  --sage-3:   #6f8073;
+  --sage-2:    #4d5e51;
+  --sage-3:    #6f8073;
 
   /* Fontes */
   --display:  'EB Garamond', 'Garamond', 'Georgia', serif;
-  --body:     'Inter Tight', system-ui, sans-serif;
-  --mono:     'JetBrains Mono', 'SF Mono', monospace;
+  --body:      'Inter Tight', system-ui, sans-serif;
+  --mono:      'JetBrains Mono', 'SF Mono', monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
@@ -656,7 +656,7 @@ section { padding: clamp(3.5rem,7vh,6rem) clamp(1rem, 4vw, 3rem) }
 }
 .cred-desc { font-size: .78rem; color: var(--mute); line-height: 1.5 }
 
-/* ═══ METHOD ═══════════════════════════════ */
+/* ═══ METHOD ═══════════════════════════ */
 .method { background: var(--paper) }
 
 .method-list {
@@ -721,7 +721,7 @@ section { padding: clamp(3.5rem,7vh,6rem) clamp(1rem, 4vw, 3rem) }
   font-weight: 700; font-size: 1.2em;
 }
 
-/* ═══ SIMULATOR ══════════════════════════════ */
+/* ═══ SIMULATOR ══════════════════════════ */
 .sim { background: var(--paper-2); border-bottom: 1px solid var(--ink) }
 
 .sim-wrap {
@@ -781,20 +781,24 @@ section { padding: clamp(3.5rem,7vh,6rem) clamp(1rem, 4vw, 3rem) }
   color: var(--sage); letter-spacing: -.015em;
 }
 
+/* Correção da barra de simulação */
 input[type=range] {
-  -webkit-appearance: none; width: 100%; height: 1px;
+  -webkit-appearance: none; width: 100%; height: 6px;
   background: var(--rule); outline: none; cursor: pointer;
   position: relative;
 }
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%; height: 6px; background: transparent;
+}
 input[type=range]::before {
   content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-  width: var(--pct, 0%); background: var(--sage);
+  width: var(--pct, 0%); background: var(--sage); pointer-events: none;
 }
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none; width: 14px; height: 14px;
   background: var(--ink); cursor: pointer;
-  transition: transform .15s;
-  border-radius: 0;
+  transition: transform .15s; margin-top: -4px;
+  border-radius: 0; position: relative; z-index: 2;
 }
 input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3) }
 
@@ -1235,7 +1239,6 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3) }
 </head>
 <body>
 
-<!-- MOBILE MENU -->
 <div class="mob-menu" id="mob">
   <button class="mob-close" onclick="closeMob()">Fechar ✕</button>
   <a href="#diagnostico" onclick="closeMob()">Diagnóstico</a>
@@ -1247,7 +1250,6 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3) }
   <a href="#contato" onclick="closeMob()" class="nav-cta">Agendar conversa</a>
 </div>
 
-<!-- MASTHEAD -->
 <div class="masthead">
   <div class="masthead-inner">
     <div class="masthead-left">
@@ -1261,7 +1263,6 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3) }
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="brand">
     <span class="brand-name"><em>I</em>ngeborg Voelz</span>
@@ -1280,7 +1281,6 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3) }
   </button>
 </nav>
 
-<!-- ═══ HERO ═══════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-issue">
     <span>Vol. I · Edição Definitiva</span>
@@ -1328,7 +1328,6 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3) }
   </div>
 </section>
 
-<!-- ═══ FIGURES ═══════════════════════════ -->
 <section class="figures">
   <div class="figures-label">
     <span>Os números do problema</span>
@@ -1355,13 +1354,12 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3) }
     <div class="fig r" data-d="3">
       <div class="fig-tag">Experiência</div>
       <div class="fig-num">40<em>+</em></div>
-      <div class="fig-desc">anos de atuação contínua no setor hospitalar de Santa Catarina, sob conselho ativo.</div>
+      <div class="fig-desc">nos de atuação contínua no setor hospitalar de Santa Catarina, sob conselho ativo.</div>
       <div class="fig-src">CRA-SC nº 4439</div>
     </div>
   </div>
 </section>
 
-<!-- ═══ MANIFESTO ════════════════════════ -->
 <section class="manifesto" id="manifesto">
   <div class="editorial-header">
     <div>
@@ -1406,14 +1404,13 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3) }
         <em>Resultado mensurável</em> em 90 dias — ou a conversa termina honestamente.
       </h3>
       <div class="manifesto-body">
-        <p>Cada cliente recebe uma consulta inicial gratuita de 40 minutos. Se ao final dessa conversa não houver clareza sobre o problema, sobre o caminho e sobre o resultado esperado, a recomendação será honesta: <strong>não avançar.</strong> Esta consultoria atende um número limitado de clínicas por ano — não há incentivo para forçar contratos.</p>
+        <p>Cada cliente recebe uma consulta inicial gratuita de 40 minutos. Se ao final dessa conversa não houver clareza sobre o problem, sobre o caminho e sobre o resultado esperado, a recomendação será honesta: <strong>não avançar.</strong> Esta consultoria atende um número limitado de clínicas por ano — não há incentivo para forçar contratos.</p>
         <p>Para clínicas atendidas, o compromisso é resultado dentro do primeiro trimestre. <strong>Glosa reduzida, contrato renegociado, governança estabelecida</strong> — algo concreto, auditável, mensurável.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ EVIDENCE QUOTE ═══════════════════ -->
 <section class="evidence">
   <div class="evidence-inner">
     <div class="evidence-tag">Em destaque</div>
@@ -1423,7 +1420,6 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3) }
   </div>
 </section>
 
-<!-- ═══ DIAGNOSIS ════════════════════════ -->
 <section class="diagnosis" id="diagnostico">
   <div class="editorial-header">
     <div>
@@ -1482,7 +1478,6 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3) }
   </div>
 </section>
 
-<!-- ═══ PORTRAIT ═══════════════════════════ -->
 <section class="portrait" id="quem">
   <div class="editorial-header">
     <div>
@@ -1558,7 +1553,6 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3) }
   </div>
 </section>
 
-<!-- ═══ SIMULATOR ═══════════════════════════ -->
 <section class="sim" id="simulador">
   <div class="editorial-header">
     <div>
@@ -1604,496 +1598,4 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3) }
             <span class="sf-label">Taxa atual de glosa</span>
             <span class="sf-value" id="sGl">15%</span>
           </div>
-          <input type="range" id="slGl" min="3" max="35" step="1" value="15">
-          <div class="sf-hint">Média setorial: 15,89% · Anahp 2025</div>
-        </div>
-        <div class="sf-block">
-          <div class="sf-row">
-            <span class="sf-label">Glosas recuperadas via recurso</span>
-            <span class="sf-value" id="sRec">30%</span>
-          </div>
-          <input type="range" id="slRec" min="0" max="95" step="5" value="30">
-          <div class="sf-hint">% que sua equipe efetivamente recupera</div>
-        </div>
-      </div>
-      <div class="sim-results">
-        <div class="sim-r">
-          <span class="sim-r-lbl">Glosa total mensal</span>
-          <span class="sim-r-val" id="rTot">—</span>
-        </div>
-        <div class="sim-r">
-          <span class="sim-r-lbl">Recuperação atual</span>
-          <span class="sim-r-val" id="rGanho">—</span>
-        </div>
-        <div class="sim-r">
-          <span class="sim-r-lbl">Perda líquida mensal</span>
-          <span class="sim-r-val loss" id="rPerda">—</span>
-        </div>
-      </div>
-      <div class="sim-final">
-        <span class="sim-final-lbl">Perda anual estimada</span>
-        <span class="sim-final-val" id="rAnual">—</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ METHOD ═══════════════════════════ -->
-<section class="method" id="metodo">
-  <div class="editorial-header">
-    <div>
-      <div class="editorial-section">Método · os quatro tempos</div>
-      <h2 class="editorial-title">Como o trabalho<br>se desenvolve <em>na prática.</em></h2>
-    </div>
-    <p class="editorial-deck">
-      Quatro tempos, dezesseis semanas, três entregas por fase. Sem reuniões intermináveis. Sem PowerPoints decorativos. Apenas o necessário para mover os números.
-    </p>
-  </div>
-
-  <div class="method-list">
-    <div class="method-row r">
-      <div>
-        <div class="method-step">i.</div>
-        <div class="method-step-meta">Sem. 1—4</div>
-      </div>
-      <h3 class="method-name"><em>Diagnosticar</em></h3>
-      <p class="method-desc">
-        Imersão integral na operação. Análise de contratos vigentes com cada operadora, revisão de processos de faturamento, mapeamento de fluxos clínicos, leitura crítica do DRE dos últimos 24 meses, reuniões individuais com sócios. <strong>Nenhuma proposta antes desta fase.</strong>
-      </p>
-      <div class="method-deliv">
-        <span class="method-deliv-label">Entregas</span>
-        <ul>
-          <li>Relatório de diagnóstico</li>
-          <li>Mapa de glosas por código TISS</li>
-          <li>DRE auditado e reorganizado</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="method-row r" data-d="1">
-      <div>
-        <div class="method-step">ii.</div>
-        <div class="method-step-meta">Sem. 5—6</div>
-      </div>
-      <h3 class="method-name"><em>Quantificar</em></h3>
-      <p class="method-desc">
-        Cada problema identificado recebe um valor monetário. Cada oportunidade, uma estimativa. Cada risco, uma probabilidade. <strong>Decisões com base em números reais</strong>, não em intuições. Construção de cenários: situação atual, conservador, ambicioso.
-      </p>
-      <div class="method-deliv">
-        <span class="method-deliv-label">Entregas</span>
-        <ul>
-          <li>Painel de KPIs personalizado</li>
-          <li>Simulador financeiro proprietário</li>
-          <li>Mapa de oportunidades priorizado</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="method-row r" data-d="2">
-      <div>
-        <div class="method-step">iii.</div>
-        <div class="method-step-meta">Sem. 7—12</div>
-      </div>
-      <h3 class="method-name"><em>Redesenhar</em></h3>
-      <p class="method-desc">
-        Implementação prática. Renegociação de contratos. Reestruturação de processos. Acordo de sócios redigido. Protocolos clínico-administrativos documentados. <strong>Rituais de gestão estabelecidos.</strong> Equipe interna capacitada para sustentar as mudanças após o término da consultoria.
-      </p>
-      <div class="method-deliv">
-        <span class="method-deliv-label">Entregas</span>
-        <ul>
-          <li>Protocolos operacionais</li>
-          <li>Acordo de sócios (se aplicável)</li>
-          <li>Plano de comunicação interna</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="method-row r" data-d="3">
-      <div>
-        <div class="method-step">iv.</div>
-        <div class="method-step-meta">Sem. 13—24</div>
-      </div>
-      <h3 class="method-name"><em>Acompanhar</em></h3>
-      <p class="method-desc">
-        Ciclos quinzenais de acompanhamento por seis meses. Métricas auditadas, ajustes finos, resolução de impasses, capacitação contínua. <strong>O resultado é mantido — não revertido.</strong> Esta fase distingue o trabalho de consultorias que entregam relatórios e somem após o pagamento final.
-      </p>
-      <div class="method-deliv">
-        <span class="method-deliv-label">Entregas</span>
-        <ul>
-          <li>Relatórios mensais executivos</li>
-          <li>Sessão de revisão trimestral</li>
-          <li>Documentação de continuidade</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SERVICES ═══════════════════════ -->
-<section class="services" id="servicos">
-  <div class="editorial-header">
-    <div>
-      <div class="editorial-section">Especialidades atendidas</div>
-      <h2 class="editorial-title">Cada especialidade<br>tem sua <em>gramática.</em></h2>
-    </div>
-    <p class="editorial-deck">
-      O trabalho não é genérico. Cada especialidade médica tem sua geometria de risco financeiro, regulatório e operacional. A análise considera o modelo de receita, o relacionamento com operadoras e a estrutura societária.
-    </p>
-  </div>
-
-  <div class="serv-grid">
-    <div class="serv-card r">
-      <span class="serv-num">i.</span>
-      <span class="serv-tag">Alta demanda regional</span>
-      <h3 class="serv-title"><em>Oftalmologia</em> e<br>Hospitais-Dia</h3>
-      <ul class="serv-list">
-        <li class="serv-li">Estruturação de pacotes globais para catarata, refrativa e vitreorretina</li>
-        <li class="serv-li">Auditoria e recuperação de glosas em exames de alta precisão</li>
-        <li class="serv-li">Negociação e revisão de contratos com Unimed Blumenau e Clinipam</li>
-        <li class="serv-li">Conformidade RDC-Anvisa para centros cirúrgicos ambulatoriais</li>
-        <li class="serv-li">KPI de conversão consulta-cirurgia e taxa de absenteísmo</li>
-      </ul>
-    </div>
-    <div class="serv-card r" data-d="1">
-      <span class="serv-num">ii.</span>
-      <span class="serv-tag">Alta complexidade</span>
-      <h3 class="serv-title"><em>Ortopedia</em> e<br>Reabilitação</h3>
-      <ul class="serv-list">
-        <li class="serv-li">Gestão estratégica de OPME — controle, custo e faturamento correto</li>
-        <li class="serv-li">Modelagem de pacotes para artroscopias e cirurgias articulares</li>
-        <li class="serv-li">Integração de ecossistema: imagem, fisioterapia e cirurgia</li>
-        <li class="serv-li">Acordos societários com rateio transparente de custos fixos</li>
-        <li class="serv-li">Indicadores de ocupação de salas e produtividade clínica</li>
-      </ul>
-    </div>
-    <div class="serv-card r" data-d="2">
-      <span class="serv-num">iii.</span>
-      <span class="serv-tag">Alto ticket particular</span>
-      <h3 class="serv-title"><em>Plástica</em> e<br>Estética Avançada</h3>
-      <ul class="serv-list">
-        <li class="serv-li">Transição de modelo médico-dependente para clínica institucional</li>
-        <li class="serv-li">Portfólio de procedimentos não-cirúrgicos com receita recorrente</li>
-        <li class="serv-li">Publicidade médica dentro dos limites do Manual CFM</li>
-        <li class="serv-li">Jornada do paciente premium do primeiro contato ao pós-op</li>
-        <li class="serv-li">Estratégias de fidelização e aumento de LTV por paciente</li>
-      </ul>
-    </div>
-    <div class="serv-card r" data-d="3">
-      <span class="serv-num">iv.</span>
-      <span class="serv-tag">Governança corporativa</span>
-      <h3 class="serv-title">Clínicas <em>Multi-Sócio</em><br>e Sociedades</h3>
-      <ul class="serv-list">
-        <li class="serv-li">Acordo de sócios: entrada, saída, sucessão, divisão de dividendos</li>
-        <li class="serv-li">Modelo de partnership para retenção de médicos juniores</li>
-        <li class="serv-li">Preparação para M&amp;A — venda ou fusão com grupos de saúde</li>
-        <li class="serv-li">Organograma executivo, alçadas e mapa de responsabilidades</li>
-        <li class="serv-li">Transição de marca pessoal para identidade institucional sólida</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PROOF ═══════════════════════════ -->
-<section class="proof">
-  <div class="editorial-header">
-    <div>
-      <div class="editorial-section">Depoimentos</div>
-      <h2 class="editorial-title">O que dizem quem<br>já <em>esteve</em> do<br>outro lado.</h2>
-    </div>
-    <p class="editorial-deck">
-      Depoimentos reais, com identificação completa, são a forma mais honesta de demonstrar resultado. Os espaços abaixo aguardam testemunhos dos primeiros clientes desta nova fase.
-    </p>
-  </div>
-
-  <div class="proof-grid">
-    <div class="proof-card r">
-      <div class="proof-placeholder">Espaço reservado · Solicitar ao primeiro cliente atendido</div>
-      <p class="proof-pull">
-        "Em três meses identificamos mais de R$ 40 mil em glosas que havia simplesmente deixado para trás. A revisão do contrato com a operadora segue, mas o impacto já é visível no caixa."
-      </p>
-      <div class="proof-meta">
-        <div class="proof-avatar">A</div>
-        <div>
-          <div class="proof-name">Dr. [Nome a confirmar]</div>
-          <div class="proof-role">Sócio-diretor · Clínica de Oftalmologia · Blumenau</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="proof-card r" data-d="1">
-      <div class="proof-placeholder">Espaço reservado · Solicitar ao segundo cliente atendido</div>
-      <p class="proof-pull">
-        "O que me surpreendeu não foi só o diagnóstico financeiro — foi a clareza com que o acordo de sócios foi estruturado. Tínhamos esse conflito há dois anos. Em seis semanas estava resolvido."
-      </p>
-      <div class="proof-meta">
-        <div class="proof-avatar">B</div>
-        <div>
-          <div class="proof-name">Dra. [Nome a confirmar]</div>
-          <div class="proof-role">Sócia · Clínica de Ortopedia · Vale do Itajaí</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FAQ ═══════════════════════════════ -->
-<section class="faq" id="faq">
-  <div class="editorial-header">
-    <div>
-      <div class="editorial-section">Perguntas frequentes</div>
-      <h2 class="editorial-title">O que se pergunta<br><em>antes</em> de começar.</h2>
-    </div>
-    <p class="editorial-deck">
-      As mesmas dúvidas reaparecem. Aqui as respostas — diretas, sem o vernáculo evasivo de quem está vendendo algo.
-    </p>
-  </div>
-
-  <div class="faq-list">
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Esta consultoria substitui meu contador ou advogado?
-        <span class="faq-toggle">+</span>
-      </button>
-      <div class="faq-a">
-        Não. Organiza a visão executiva da operação, identifica riscos e coordena prioridades — questões fiscais, jurídicas e regulatórias são validadas pelos profissionais responsáveis de cada área. O trabalho é <strong>complementar</strong>: muitas vezes, levamos até seus especialistas problemas que estavam invisíveis para eles resolverem.
-      </div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Para que tamanho de clínica faz sentido?
-        <span class="faq-toggle">+</span>
-      </button>
-      <div class="faq-a">
-        O perfil ideal: clínicas médicas, hospitais-dia e sociedades médicas com equipe estruturada, faturamento mensal via convênio acima de R$ 80 mil e procedimentos cirúrgicos ou diagnósticos relevantes. Blumenau e Vale do Itajaí têm prioridade no atendimento. Atendemos Santa Catarina mediante avaliação prévia. <strong>Apenas 12 clínicas por ano</strong> — para preservar a profundidade da entrega.
-      </div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Como é a primeira conversa?
-        <span class="faq-toggle">+</span>
-      </button>
-      <div class="faq-a">
-        Conversa técnica de 40 minutos, sem custo e sem compromisso. Mapeamos o contexto da clínica, os maiores pontos de risco e definimos juntos se faz sentido avançar. Sem apresentação comercial. Sem PowerPoint. <strong>Análise real com perguntas objetivas.</strong> Se ao final não houver consenso sobre o caminho, a recomendação será não avançar.
-      </div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Em quanto tempo se vê resultado?
-        <span class="faq-toggle">+</span>
-      </button>
-      <div class="faq-a">
-        Depende do problema. <strong>Contratos desatualizados</strong> e <strong>glosas sistemáticas</strong> costumam impactar o fluxo de caixa já no primeiro trimestre. <strong>Reestruturação tributária</strong> via equiparação hospitalar gera economia a partir da próxima competência fiscal. <strong>Governança e processos</strong> levam 90 a 180 dias para consolidação. A primeira conversa estabelece o cronograma realista.
-      </div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Inclui implementação ou apenas diagnóstico?
-        <span class="faq-toggle">+</span>
-      </button>
-      <div class="faq-a">
-        Ambas as modalidades existem. <strong>Diagnóstico isolado</strong> para quem quer clareza antes de decidir. <strong>Acompanhamento executivo</strong> para quem quer implementar — com ciclos quinzenais por seis meses, metas definidas e responsáveis nomeados. A combinação mais comum começa pelo diagnóstico e avança para três ciclos de acompanhamento.
-      </div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Qual o investimento envolvido?
-        <span class="faq-toggle">+</span>
-      </button>
-      <div class="faq-a">
-        Varia conforme escopo, porte e modalidade. A definição do investimento <strong>vem depois</strong> da primeira conversa, quando o problema está mapeado. Não há tabela pública porque não há trabalho padronizado. O que existe é a regra: <strong>se o ROI estimado não for ao menos 4x o investimento, a recomendação será não contratar.</strong>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CONTACT ═══════════════════════════ -->
-<section class="contact" id="contato">
-  <div class="contact-grid">
-    <div class="contact-left">
-      <div class="contact-eyebrow">Próximo passo</div>
-      <h2 class="contact-title">Uma <em>conversa.</em><br>Quarenta minutos.<br>Sem pressão.</h2>
-      <p class="contact-deck">
-        Tempo suficiente para entender o contexto da clínica, mapear os maiores riscos e definir se há razão para avançar. Se não houver, você sai da conversa com o diagnóstico inicial em mãos.
-      </p>
-
-      <div class="contact-info">
-        <div class="ci-row">
-          <span class="ci-label">WhatsApp</span>
-          <a href="https://wa.me/5547999796000" class="ci-val">+55 (47) 99979-6000</a>
-        </div>
-        <div class="ci-row">
-          <span class="ci-label">E-mail</span>
-          <a href="mailto:ingevoelz@yahoo.com.br" class="ci-val">ingevoelz@yahoo.com.br</a>
-        </div>
-        <div class="ci-row">
-          <span class="ci-label">Local</span>
-          <span class="ci-val" style="cursor:default">Blumenau · Vale do Itajaí · SC</span>
-        </div>
-        <div class="ci-row">
-          <span class="ci-label">Atendimento</span>
-          <span class="ci-val" style="cursor:default">Segunda a sexta · 9h às 18h</span>
-        </div>
-      </div>
-
-      <div class="contact-seal">
-        <div class="contact-seal-t">Compromisso de sigilo</div>
-        <p class="contact-seal-d">
-          Tudo o que for compartilhado é tratado com confidencialidade absoluta. Nenhum dado da sua clínica é divulgado, compartilhado ou utilizado fora do contexto do trabalho.
-        </p>
-      </div>
-    </div>
-
-    <form class="contact-form" onsubmit="handleSub(event)">
-      <div class="cf-head">
-        <div class="cf-head-t">Formulário reservado</div>
-        <div class="cf-head-d">Agendar consulta inicial</div>
-      </div>
-      <div class="cf-fields">
-        <div class="cf-row">
-          <div class="cf-field">
-            <label>Nome completo</label>
-            <input type="text" placeholder="Dr(a). Nome e sobrenome" required>
-          </div>
-          <div class="cf-field">
-            <label>E-mail</label>
-            <input type="email" placeholder="endereço profissional" required>
-          </div>
-        </div>
-        <div class="cf-row">
-          <div class="cf-field">
-            <label>Clínica · Especialidade</label>
-            <input type="text" placeholder="Nome e foco da clínica">
-          </div>
-          <div class="cf-field">
-            <label>WhatsApp</label>
-            <input type="tel" placeholder="(47) 9xxxx-xxxx">
-          </div>
-        </div>
-        <div class="cf-field">
-          <label>Principal preocupação</label>
-          <select>
-            <option disabled selected>selecione o foco</option>
-            <option>Glosas e faturamento</option>
-            <option>Contratos com operadoras</option>
-            <option>Governança societária</option>
-            <option>KPIs e DRE gerencial</option>
-            <option>Qualidade e processos</option>
-            <option>Equiparação tributária</option>
-            <option>Outro · descreverei na mensagem</option>
-          </select>
-        </div>
-        <div class="cf-field">
-          <label>Faturamento mensal</label>
-          <select>
-            <option disabled selected>selecione a faixa</option>
-            <option>Prefiro informar na conversa</option>
-            <option>Até R$ 100 mil/mês</option>
-            <option>R$ 100 mil a R$ 300 mil/mês</option>
-            <option>R$ 300 mil a R$ 700 mil/mês</option>
-            <option>Acima de R$ 700 mil/mês</option>
-          </select>
-        </div>
-        <div class="cf-field">
-          <label>Mensagem · opcional</label>
-          <textarea rows="3" placeholder="contexto adicional, dúvida específica, urgência"></textarea>
-        </div>
-        <button type="submit" class="cf-submit" id="cfBtn">
-          Solicitar agendamento <span>→</span>
-        </button>
-        <p class="cf-privacy">A solicitação vai diretamente para Ingeborg Voelz · sem intermediários, sem CRM de terceiros</p>
-      </div>
-    </form>
-  </div>
-</section>
-
-<!-- ═══ COLOPHON ═══════════════════════════ -->
-<footer class="colophon">
-  <div class="colophon-grid">
-    <div>
-      <div class="colo-brand"><em>I</em>ngeborg Voelz</div>
-      <div class="colo-tag">Consultoria · Gestão Hospitalar · est. 1985</div>
-      <p class="colo-desc">
-        Consultoria executiva especializada em gestão de clínicas médicas e hospitais-dia. Atendimento prioritário em Blumenau, Vale do Itajaí e Santa Catarina.
-      </p>
-    </div>
-    <div class="colo-col">
-      <h4>Navegação</h4>
-      <ul>
-        <li><a href="#manifesto">Princípios</a></li>
-        <li><a href="#quem">Sobre Ingeborg</a></li>
-        <li><a href="#metodo">Método</a></li>
-        <li><a href="#servicos">Especialidades</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </div>
-    <div class="colo-col">
-      <h4>Contato</h4>
-      <ul>
-        <li><a href="https://wa.me/5547999796000">WhatsApp</a></li>
-        <li><a href="mailto:ingevoelz@yahoo.com.br">E-mail</a></li>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Instagram</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="colo-foot">
-    <span>© 2025 · Ingeborg Voelz Consultoria · Todos os direitos reservados</span>
-    <span>CRA-SC nº 4439 · Blumenau, SC</span>
-  </div>
-</footer>
-
-<script>
-function openMob(){ document.getElementById('mob').classList.add('open') }
-function closeMob(){ document.getElementById('mob').classList.remove('open') }
-
-function fmt(n){ return 'R$ ' + Math.round(n).toLocaleString('pt-BR') }
-function setPct(el, v){ el.style.setProperty('--pct', v + '%') }
-
-const slFat = document.getElementById('slFat');
-const slGl  = document.getElementById('slGl');
-const slRec = document.getElementById('slRec');
-
-function calc(){
-  const f = +slFat.value, g = +slGl.value/100, r = +slRec.value/100;
-  document.getElementById('sFat').textContent = fmt(f);
-  document.getElementById('sGl').textContent  = slGl.value + '%';
-  document.getElementById('sRec').textContent = slRec.value + '%';
-  setPct(slFat, (f-50000)/(900000-50000)*100);
-  setPct(slGl,  (slGl.value-3)/(35-3)*100);
-  setPct(slRec, (slRec.value)/95*100);
-  const tot = f * g, ganho = tot * r, perda = tot - ganho;
-  document.getElementById('rTot').textContent = fmt(tot);
-  document.getElementById('rGanho').textContent = fmt(ganho);
-  document.getElementById('rPerda').textContent = fmt(perda);
-  document.getElementById('rAnual').textContent = fmt(perda * 12);
-  document.getElementById('rTitle').textContent = fmt(perda) + ' por mês';
-}
-slFat.addEventListener('input', calc);
-slGl.addEventListener('input', calc);
-slRec.addEventListener('input', calc);
-calc();
-
-function toggleFaq(btn){
-  const item = btn.parentElement;
-  const was = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(x => x.classList.remove('open'));
-  if(!was) item.classList.add('open');
-}
-
-function handleSub(e){
-  e.preventDefault();
-  const btn = document.getElementById('cfBtn');
-  btn.disabled = true;
-  btn.innerHTML = 'Solicitação enviada · Aguarde retorno em até 24h ✓';
-  setTimeout(()=>{
-    window.open('https://wa.me/5547999796000?text=Ol%C3%A1+Ingeborg%2C+preenchi+o+formul%C3%A1rio+no+site+e+gostaria+de+agendar+uma+conversa+sobre+minha+cl%C3%ADnica.','_blank');
-  }, 1000);
-}
-
-const obs = new IntersectionObserver(es => {
-  es.forEach(e => { if(e.isIntersecting) e.target.classList.add('v') });
-}, { threshold: .1 });
-document.querySelectorAll('.r').forEach(el => obs.observe(el));
-</script>
-</body>
-</html>
+          <input type="range" id="slGl" min="3" max="35" step="1" value="
