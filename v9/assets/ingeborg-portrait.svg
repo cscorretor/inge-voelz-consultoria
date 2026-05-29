@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1141" width="800" height="1141" role="img" aria-labelledby="title desc">
+  <title id="title">Ingeborg Voelz</title>
+  <desc id="desc">Painel editorial de marca para a consultoria executiva em gestão de saúde.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4efe6"/>
+      <stop offset="55%" stop-color="#ece4d5"/>
+      <stop offset="100%" stop-color="#ded3c0"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2f3b34"/>
+      <stop offset="100%" stop-color="#48564a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1141" fill="url(#bg)"/>
+  <rect x="44" y="44" width="712" height="1053" fill="none" stroke="rgba(184,134,84,.35)" stroke-width="2"/>
+  <rect x="84" y="84" width="632" height="973" fill="rgba(255,255,255,.35)" stroke="rgba(26,26,24,.08)" stroke-width="1.5"/>
+  <rect x="410" y="580" width="250" height="280" fill="url(#accent)" rx="0"/>
+  <line x1="116" y1="180" x2="300" y2="180" stroke="#b88654" stroke-width="2"/>
+  <line x1="116" y1="960" x2="684" y2="960" stroke="rgba(26,26,24,.12)" stroke-width="1.5"/>
+  <text x="116" y="155" fill="#847b6e" font-family="'JetBrains Mono', monospace" font-size="18" letter-spacing="6" text-transform="uppercase">CONSULTORIA EXECUTIVA</text>
+  <text x="116" y="280" fill="#1a1a18" font-family="'Cormorant Garamond', serif" font-size="98" font-weight="600">Ingeborg</text>
+  <text x="116" y="364" fill="#1a1a18" font-family="'Cormorant Garamond', serif" font-size="98" font-weight="600">Voelz</text>
+  <text x="116" y="440" fill="#2b2b27" font-family="'Manrope', Arial, sans-serif" font-size="28">Gestão, contratos, glosas, indicadores e governança</text>
+  <text x="116" y="478" fill="#2b2b27" font-family="'Manrope', Arial, sans-serif" font-size="28">para clínicas, sociedades médicas e hospitais-dia.</text>
+  <text x="116" y="660" fill="#1a1a18" font-family="'Cormorant Garamond', serif" font-size="210" font-weight="600">I</text>
+  <text x="228" y="730" fill="#b88654" font-family="'Cormorant Garamond', serif" font-size="190" font-weight="600">V</text>
+  <text x="116" y="824" fill="#847b6e" font-family="'JetBrains Mono', monospace" font-size="18" letter-spacing="6">BLUMENAU · VALE DO ITAJAÍ · SC</text>
+  <text x="442" y="646" fill="#efe7db" font-family="'Cormorant Garamond', serif" font-size="38" font-style="italic">Mais do que organizar números,</text>
+  <text x="442" y="692" fill="#efe7db" font-family="'Cormorant Garamond', serif" font-size="38" font-style="italic">o trabalho é criar clareza para</text>
+  <text x="442" y="738" fill="#efe7db" font-family="'Cormorant Garamond', serif" font-size="38" font-style="italic">decisões que sustentem a clínica.</text>
+  <text x="442" y="808" fill="#d8b082" font-family="'Cormorant Garamond', serif" font-size="48" font-style="italic">Ingeborg Voelz</text>
+  <text x="116" y="1010" fill="#847b6e" font-family="'JetBrains Mono', monospace" font-size="16" letter-spacing="5">GESTÃO QUE SUSTENTA DECISÕES. RESULTADOS QUE PERMANECEM.</text>
+</svg>
