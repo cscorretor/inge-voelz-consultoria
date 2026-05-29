@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingeborg Voelz | Consultoria Executiva em Gestão de Saúde</title>
+  <meta name="description" content="Consultoria executiva para clínicas, sociedades médicas e hospitais-dia que precisam de mais previsibilidade, governança, margem e clareza de gestão.">
+  <meta name="theme-color" content="#1a1a18">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a18;
+      --ink-soft: #2b2b27;
+      --paper: #f4efe6;
+      --paper-2: #ece4d5;
+      --sage: #2f3b34;
+      --bronze: #b88654;
+      --stone: #847b6e;
+      --line: rgba(26, 26, 24, 0.16);
+      --line-soft: rgba(26, 26, 24, 0.08);
+      --shadow: 0 28px 90px rgba(26, 26, 24, 0.12);
+      --shadow-soft: 0 18px 60px rgba(26, 26, 24, 0.07);
+      --display: "Cormorant Garamond", Georgia, serif;
+      --body: "Manrope", Arial, sans-serif;
+      --mono: "JetBrains Mono", Consolas, monospace;
+      --wrap: min(1240px, calc(100% - 40px));
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--body);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(184, 134, 84, 0.08), transparent 24%),
+        radial-gradient(circle at left 12%, rgba(47, 59, 52, 0.06), transparent 22%),
+        linear-gradient(180deg, #f7f2ea 0%, var(--paper) 45%, #f9f5ef 100%);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    .wrap { width: var(--wrap); margin: 0 auto; }
+    .line { width: 56px; height: 1px; background: var(--bronze); display: inline-block; }
+    .label {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--stone);
+    }
+    .section { padding: clamp(3.6rem, 7vw, 6rem) 0; border-top: 1px solid var(--line-soft); }
+    .editorial-head {
+      display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
+      gap: 2.5rem; align-items: end; margin-bottom: 2.6rem;
+    }
+    .editorial-title {
+      font-family: var(--display); font-size: clamp(2.7rem, 5vw, 4.8rem);
+      line-height: 0.98; letter-spacing: -0.04em; font-weight: 600; margin-top: 1rem;
+    }
+    .editorial-title em { font-style: italic; color: var(--sage); }
+    .editorial-deck { font-size: 1.03rem; color: var(--ink-soft); max-width: 42rem; }
+    .masthead {
+      border-bottom: 1px solid var(--line);
+      background: rgba(244, 239, 230, 0.9);
+      backdrop-filter: blur(12px);
+    }
+    .masthead-inner {
+      width: var(--wrap); margin: 0 auto; min-height: 42px;
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+      padding: 0.6rem 0; font-family: var(--mono); font-size: 0.64rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone);
+    }
+    .masthead-group { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .masthead b { color: var(--ink); font-weight: 500; }
+    .nav {
+      position: sticky; top: 0; z-index: 30;
+      background: rgba(244, 239, 230, 0.92); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      width: var(--wrap); margin: 0 auto; min-height: 88px;
+      display: flex; align-items: center; justify-content: space-between; gap: 1.2rem;
+    }
+    .brand { display: flex; align-items: center; gap: 18px; min-width: 0; }
+    .brand-mark {
+      width: 56px; height: 56px; border: 1px solid rgba(184, 134, 84, 0.28);
+      border-radius: 18px; background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.22));
+      display: grid; place-items: center; position: relative; overflow: hidden; flex: 0 0 auto;
+    }
+    .brand-mark::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(184, 134, 84, 0.12), transparent 60%);
+    }
+    .mark-stack { position: relative; width: 30px; height: 36px; font-family: var(--display); font-size: 2.25rem; line-height: 1; }
+    .mark-stack .i { position: absolute; left: 0; top: -3px; color: var(--ink); }
+    .mark-stack .v { position: absolute; right: 0; bottom: -4px; color: var(--bronze); }
+    .brand-copy { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+    .brand-title {
+      font-family: var(--display); font-size: clamp(1.8rem, 2vw, 2.25rem);
+      line-height: 0.92; letter-spacing: 0.02em; text-transform: uppercase;
+    }
+    .brand-subtitle {
+      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--stone);
+    }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a {
+      position: relative; font-size: 0.84rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--ink-soft); padding: 0.35rem 0;
+    }
+    .nav-links a:not(.nav-cta)::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px;
+      background: var(--sage); transform: scaleX(0); transform-origin: left; transition: transform .24s ease;
+    }
+    .nav-links a:not(.nav-cta):hover::after { transform: scaleX(1); }
+    .nav-cta, .button-primary, .button-secondary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      border: none; cursor: pointer; transition: transform .22s ease, background .22s ease, color .22s ease, border-color .22s ease;
+    }
+    .nav-cta, .button-primary {
+      background: var(--sage); color: #f8f3eb; padding: 15px 24px; border-radius: 0;
+      box-shadow: 0 18px 40px rgba(47,59,52,.16); font-size: .82rem; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase;
+    }
+    .nav-cta:hover, .button-primary:hover { background: #3c4a41; transform: translateY(-1px); }
+    .button-secondary {
+      padding: 14px 22px; border: 1px solid rgba(26,26,24,.18); color: var(--ink);
+      background: rgba(255,255,255,.32); font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .button-secondary:hover { border-color: rgba(47,59,52,.4); color: var(--sage); transform: translateY(-1px); }
+    .button-arrow { width: 18px; height: 18px; flex: 0 0 auto; }
+    .hero { position: relative; overflow: hidden; padding: clamp(2.5rem, 6vw, 4rem) 0 0; }
+    .hero-grid {
+      width: var(--wrap); margin: 0 auto;
+      display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(420px, 0.92fr);
+      gap: clamp(2.2rem, 4vw, 4rem); align-items: center; padding-bottom: clamp(2.8rem, 7vw, 5rem);
+      position: relative; z-index: 1;
+    }
+    .hero-kicker {
+      display: flex; align-items: center; gap: 18px; font-family: var(--mono); font-size: .72rem;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--bronze); margin-bottom: 2rem; flex-wrap: wrap;
+    }
+    .hero-kicker::after { content: ""; width: 72px; height: 1px; background: rgba(184, 134, 84, .5); }
+    .hero-title {
+      font-family: var(--display); font-size: clamp(4rem, 6.5vw, 6.7rem);
+      line-height: 0.9; letter-spacing: -0.055em; font-weight: 600; max-width: 10.5ch;
+    }
+    .hero-title em { color: var(--sage); font-style: italic; }
+    .hero-lede { margin-top: 2rem; max-width: 36rem; font-size: clamp(1.07rem, 1.35vw, 1.28rem); color: var(--ink-soft); }
+    .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 2.2rem; }
+    .hero-metrics {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem;
+      margin-top: 2.8rem; padding-top: 1.8rem; border-top: 1px solid var(--line);
+    }
+    .metric { padding-right: 1rem; border-right: 1px solid rgba(26,26,24,.08); }
+    .metric:last-child { border-right: none; padding-right: 0; }
+    .metric strong {
+      display: block; font-family: var(--display); font-size: clamp(2.1rem, 3vw, 3rem);
+      line-height: 0.92; font-weight: 600; letter-spacing: -0.04em;
+    }
+    .metric span {
+      display: block; margin-top: .5rem; font-family: var(--mono); font-size: .68rem;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--stone);
+    }
+    .hero-visual { position: relative; min-height: 680px; display: flex; align-items: flex-end; justify-content: flex-end; }
+    .hero-photo { position: absolute; right: 0; bottom: 0; width: min(760px, 100%); filter: drop-shadow(0 20px 60px rgba(26,26,24,.14)); }
+    .hero-quote {
+      position: absolute; right: 12px; bottom: 46px; width: min(290px, 42vw);
+      padding: 1.8rem 1.8rem 1.6rem; background: rgba(47,59,52,.95); color: #efe7db; box-shadow: var(--shadow);
+    }
+    .hero-quote p { font-family: var(--display); font-size: 1.1rem; line-height: 1.5; margin-bottom: 1rem; }
+    .hero-quote strong { display: block; font-family: var(--display); font-size: 1.7rem; font-style: italic; font-weight: 500; color: #d8b082; margin-bottom: .6rem; }
+    .hero-quote span { display: block; font-family: var(--mono); font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(239,231,219,.75); line-height: 1.8; }
+    .hero-strip { border-top: 1px solid var(--line); background: rgba(255,255,255,.28); position: relative; z-index: 1; }
+    .hero-strip-grid { width: var(--wrap); margin: 0 auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; padding: 1.35rem 0; }
+    .hero-strip-item { padding-right: 1rem; border-right: 1px solid var(--line); }
+    .hero-strip-item:last-child { border-right: none; padding-right: 0; }
+    .hero-strip-item small { display: block; font-family: var(--mono); font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); margin-bottom: .55rem; }
+    .hero-strip-item span { font-size: .9rem; color: var(--ink-soft); letter-spacing: .04em; text-transform: uppercase; }
+    .problem-grid { display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); gap: 2rem; align-items: start; }
+    .problem-list, .diagnostic-panel, .sim-card, .briefing, .contact-cards { box-shadow: var(--shadow-soft); }
+    .problem-list {
+      padding: 2.1rem 2rem; border: 1px solid var(--line); background: rgba(255,255,255,.36);
+    }
+    .problem-list h3 {
+      font-family: var(--display); font-size: clamp(2.4rem, 4vw, 4rem);
+      line-height: .98; letter-spacing: -.04em; font-weight: 600; margin: .9rem 0 1.2rem;
+    }
+    .problem-list p { font-size: 1rem; color: var(--ink-soft); max-width: 34rem; }
+    .problem-points { list-style: none; margin-top: 1.8rem; border-top: 1px solid var(--line); }
+    .problem-points li {
+      padding: 1rem 0; border-bottom: 1px solid var(--line-soft); display: grid;
+      grid-template-columns: 20px 1fr; gap: 12px; color: var(--ink-soft);
+    }
+    .problem-points li::before { content: "×"; color: var(--bronze); font-size: 1.1rem; line-height: 1; }
+    .diagnostic-panel {
+      border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.58), rgba(255,255,255,.34)); padding: 2.1rem;
+    }
+    .diagnostic-panel h3 { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); margin-bottom: .8rem; }
+    .diagnostic-panel > p { color: var(--ink-soft); max-width: 42rem; margin-bottom: 1.8rem; }
+    .diagnostic-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line-soft); }
+    .diagnostic-item { padding: 1.5rem; border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); background: rgba(255,255,255,.22); }
+    .diagnostic-item strong { display: block; font-family: var(--mono); font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--stone); margin-bottom: .85rem; }
+    .diagnostic-item h4 { font-family: var(--display); font-size: 1.85rem; line-height: 1; font-weight: 600; margin-bottom: .8rem; }
+    .diagnostic-item p { color: var(--ink-soft); font-size: .98rem; }
+    .authority { background: linear-gradient(180deg, rgba(255,255,255,.2), rgba(238,232,221,.55)); }
+    .authority-grid { display: grid; grid-template-columns: minmax(360px, .84fr) minmax(0, 1.16fr); gap: 3rem; align-items: start; }
+    .authority-photo-frame { position: relative; background: linear-gradient(180deg, var(--paper-2), rgba(255,255,255,.65)); border: 1px solid var(--line); padding: 20px; box-shadow: var(--shadow); }
+    .authority-photo-frame::before { content: ""; position: absolute; inset: 28px 28px auto auto; width: 120px; height: 160px; border: 1px solid rgba(184, 134, 84, .38); }
+    .authority-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; filter: grayscale(1) contrast(1.02) brightness(1.02); }
+    .authority-signature { margin-top: 1.2rem; font-family: var(--display); font-size: 2.15rem; font-style: italic; color: #48564a; }
+    .authority-role { font-family: var(--mono); font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--bronze); margin-top: .4rem; }
+    .authority-lead { font-family: var(--display); font-size: clamp(2rem, 3vw, 3rem); line-height: 1.06; font-weight: 600; margin-bottom: 1.4rem; }
+    .authority-body p { margin-bottom: 1rem; color: var(--ink-soft); }
+    .authority-body strong { color: var(--ink); }
+    .cred-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line-soft); }
+    .cred-card { padding: 1.4rem 1.4rem 1.5rem; border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); background: rgba(255,255,255,.28); }
+    .cred-card small { display: block; font-family: var(--mono); font-size: .64rem; letter-spacing: .18em; text-transform: uppercase; color: var(--bronze); margin-bottom: .6rem; line-height: 1.7; }
+    .cred-card strong { display: block; font-size: 1.04rem; margin-bottom: .55rem; }
+    .cred-card p { color: var(--ink-soft); font-size: .95rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+    .service-card {
+      border: 1px solid var(--line); background: rgba(255,255,255,.42); padding: 1.5rem 1.4rem 1.4rem;
+      min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-soft);
+    }
+    .service-no { font-family: var(--mono); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--bronze); margin-bottom: 1rem; }
+    .service-card h3 { font-family: var(--display); font-size: 2rem; line-height: .98; font-weight: 600; margin-bottom: .9rem; }
+    .service-card p { color: var(--ink-soft); font-size: .97rem; }
+    .service-arrow { margin-top: 1.3rem; font-family: var(--display); font-size: 1.7rem; color: var(--stone); }
+    .simulator { background: linear-gradient(180deg, rgba(255,255,255,.28), rgba(222,211,192,.44)); }
+    .sim-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 2rem; }
+    .sim-copy p { color: var(--ink-soft); margin-bottom: 1rem; }
+    .sim-copy .meta { font-family: var(--mono); font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); line-height: 1.9; margin-top: 1.5rem; }
+    .sim-card { border: 1px solid var(--line); background: rgba(255,255,255,.64); padding: 2rem; box-shadow: var(--shadow); }
+    .sim-head {
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      font-family: var(--mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); margin-bottom: 1.5rem;
+    }
+    .sim-head strong { color: var(--ink); font-weight: 500; }
+    .sim-field { padding: 1rem 0 1.2rem; border-top: 1px solid var(--line-soft); }
+    .sim-field:first-of-type { border-top: none; padding-top: 0; }
+    .sim-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: .8rem; }
+    .sim-label { font-size: .93rem; color: var(--ink); }
+    .sim-value { font-family: var(--mono); font-size: .85rem; letter-spacing: .08em; color: var(--bronze); white-space: nowrap; }
+    .sim-field input[type="range"] { width: 100%; accent-color: var(--sage); }
+    .sim-hint { margin-top: .55rem; font-size: .86rem; color: var(--stone); }
+    .sim-result { margin-top: 1.4rem; border: 1px solid var(--line); background: linear-gradient(135deg, rgba(47,59,52,.95), rgba(63,77,67,.94)); color: #f4ede4; padding: 1.6rem; }
+    .sim-result small { display: block; font-family: var(--mono); font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(244,237,228,.72); margin-bottom: .8rem; }
+    .sim-result strong { display: block; font-family: var(--display); font-size: clamp(2.6rem, 4vw, 4rem); line-height: .9; font-weight: 600; letter-spacing: -.04em; }
+    .sim-result p { margin-top: .8rem; color: rgba(244,237,228,.74); }
+    .faq-list { border-top: 1px solid var(--line); }
+    .faq-item { border-bottom: 1px solid var(--line-soft); padding: 1.2rem 0; }
+    .faq-question { width: 100%; background: none; border: none; display: flex; justify-content: space-between; gap: 1rem; text-align: left; cursor: pointer; }
+    .faq-question span:first-child { font-family: var(--display); font-size: 1.9rem; line-height: 1; font-weight: 600; }
+    .faq-toggle { font-family: var(--mono); font-size: 1.1rem; color: var(--bronze); transition: transform .24s ease; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .3s ease, padding-top .3s ease; color: var(--ink-soft); padding-top: 0; max-width: 54rem; }
+    .faq-item.open .faq-answer { max-height: 240px; padding-top: .9rem; }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .contact-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 2rem; align-items: start; }
+    .contact-copy h3 { font-family: var(--display); font-size: clamp(2.5rem, 4vw, 4.2rem); line-height: .98; letter-spacing: -.04em; font-weight: 600; margin: 1rem 0 1rem; }
+    .contact-copy p { color: var(--ink-soft); max-width: 36rem; margin-bottom: 1rem; }
+    .contact-cards { display: grid; gap: 0; margin-top: 1.6rem; border: 1px solid var(--line); background: rgba(255,255,255,.38); }
+    .contact-card { padding: 1rem 1.1rem; border-bottom: 1px solid var(--line-soft); }
+    .contact-card:last-child { border-bottom: none; }
+    .contact-card small { display: block; font-family: var(--mono); font-size: .64rem; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); margin-bottom: .35rem; }
+    .contact-card strong { display: block; font-size: 1rem; margin-bottom: .2rem; }
+    .contact-card span { color: var(--ink-soft); font-size: .92rem; }
+    .briefing { border: 1px solid var(--line); background: rgba(255,255,255,.64); padding: 1.9rem; box-shadow: var(--shadow); }
+    .briefing-head { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; margin-bottom: 1.4rem; }
+    .briefing-head h3 { font-family: var(--display); font-size: 2rem; line-height: .98; font-weight: 600; }
+    .briefing-head span { font-family: var(--mono); font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); }
+    .briefing-form { display: grid; gap: 12px; }
+    .briefing-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .field { display: grid; border: 1px solid var(--line-soft); background: rgba(255,255,255,.42); }
+    .field label { font-family: var(--mono); font-size: .63rem; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); padding: .82rem .9rem .4rem; }
+    .field input, .field select, .field textarea { width: 100%; border: none; background: transparent; padding: 0 .9rem .95rem; outline: none; resize: vertical; min-height: 46px; }
+    .field textarea { min-height: 120px; }
+    .briefing-note { font-size: .88rem; color: var(--stone); margin-top: .5rem; }
+    .full { width: 100%; }
+    .footer { border-top: 1px solid var(--line); padding: 1.35rem 0 2rem; background: rgba(255,255,255,.24); }
+    .footer-grid { width: var(--wrap); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; align-items: end; }
+    .footer-copy strong { display: block; font-family: var(--display); font-size: 1.55rem; line-height: 1; font-weight: 600; margin-bottom: .4rem; }
+    .footer-copy span, .footer-meta { font-family: var(--mono); font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); line-height: 1.8; }
+    .footer-meta { text-align: right; }
+    .mobile-whats { display: none; position: fixed; left: 20px; right: 20px; bottom: 18px; z-index: 25; }
+
+    @media (max-width: 1180px) {
+      .hero-grid, .authority-grid, .problem-grid, .sim-grid, .contact-grid, .editorial-head { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .hero-strip-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-visual { min-height: 620px; }
+    }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero-metrics, .briefing-grid, .diagnostic-grid, .cred-grid { grid-template-columns: 1fr; }
+      .metric, .hero-strip-item { border-right: none; padding-right: 0; }
+      .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-meta { text-align: left; }
+    }
+    @media (max-width: 720px) {
+      .hero-title, .editorial-title, .contact-copy h3, .problem-list h3 { font-size: clamp(2.7rem, 13vw, 4rem); }
+      .hero-grid { gap: 1rem; padding-bottom: 2.4rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-visual { min-height: 460px; }
+      .hero-quote { right: 0; bottom: 10px; width: min(260px, 72vw); padding: 1.25rem; }
+      .hero-strip-grid, .services-grid { grid-template-columns: 1fr; }
+      .problem-list, .diagnostic-panel, .sim-card, .briefing { padding: 1.35rem; }
+      .mobile-whats { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <div class="masthead">
+    <div class="masthead-inner">
+      <div class="masthead-group">
+        <span>Atuação regional <b>Vale do Itajaí · SC</b></span>
+        <span>Consultoria executiva em <b>gestão de saúde</b></span>
+      </div>
+      <div class="masthead-group">
+        <span>Agenda <b>seletiva</b></span>
+        <span>WhatsApp <b>(47) 99979-6000</b></span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#topo" aria-label="Ingeborg Voelz">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="mark-stack"><span class="i">I</span><span class="v">V</span></span>
+        </span>
+        <span class="brand-copy">
+          <span class="brand-title">Ingeborg Voelz</span>
+          <span class="brand-subtitle">Consultoria executiva em gestão de saúde</span>
+        </span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#diagnostico">Diagnóstico</a></li>
+        <li><a href="#atuacao">Atuação</a></li>
+        <li><a href="#ingeborg">Ingeborg</a></li>
+        <li><a href="#simulador">Simulador</a></li>
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="https://wa.me/5547999796000?text=Ol%C3%A1%2C%20Ingeborg.%20Quero%20agendar%20uma%20conversa%20reservada%20sobre%20a%20gest%C3%A3o%20da%20minha%20cl%C3%ADnica." class="nav-cta" target="_blank" rel="noopener">Agendar conversa</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="topo">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-kicker">Gestão que sustenta decisões. Resultados que permanecem.</div>
+          <h1 class="hero-title">Clareza para decidir.<br>Estratégia para <em>crescer.</em></h1>
+          <p class="hero-lede">Consultoria executiva para clínicas, sociedades médicas e hospitais-dia que desejam mais previsibilidade, melhor margem, governança mais madura e decisões ancoradas em dados reais da operação.</p>
+          <div class="hero-actions">
+            <a class="button-primary" href="https://wa.me/5547999796000?text=Ol%C3%A1%2C%20Ingeborg.%20Quero%20agendar%20uma%20conversa%20reservada%20sobre%20a%20gest%C3%A3o%20da%20minha%20cl%C3%ADnica." target="_blank" rel="noopener">Agendar uma conversa
+              <svg class="button-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10H17M11.5 4.5L17 10L11.5 15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+            <a class="button-secondary" href="#diagnostico">Como posso ajudar</a>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric"><strong>40+</strong><span>Anos de trajetória no setor de saúde</span></div>
+            <div class="metric"><strong>2004</strong><span>Atuação executiva contínua no Hospital de Olhos de Blumenau</span></div>
+            <div class="metric"><strong>Gestão</strong><span>Contratos, indicadores, pessoas, qualidade e governança</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img class="hero-photo" src="./assets/ingeborg-portrait.svg" alt="Ingeborg Voelz, consultora executiva em gestão de saúde, em retrato institucional.">
+          <aside class="hero-quote">
+            <p>Mais do que organizar números, ajudo a criar condições para que médicos e gestores lidem com segurança e construam instituições que prosperam.</p>
+            <strong>Ingeborg Voelz</strong>
+            <span>Consultoria executiva em gestão de saúde</span>
+          </aside>
+        </div>
+      </div>
+      <div class="hero-strip">
+        <div class="hero-strip-grid">
+          <div class="hero-strip-item"><small>Atuação regional</small><span>Vale do Itajaí · Santa Catarina</span></div>
+          <div class="hero-strip-item"><small>Especialista em</small><span>Clínicas e hospitais-dia</span></div>
+          <div class="hero-strip-item"><small>Foco</small><span>Dados · Governança · Resultados</span></div>
+          <div class="hero-strip-item"><small>Base</small><span>Operação real · Experiência · Estratégia</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="diagnostico">
+      <div class="wrap">
+        <div class="problem-grid">
+          <div class="problem-list">
+            <div class="label"><span class="line"></span> O desafio</div>
+            <h3>Onde a gestão não enxerga, o resultado não aparece.</h3>
+            <p>Clínicas e hospitais-dia podem crescer em faturamento e, ainda assim, perder margem, previsibilidade e capacidade de decisão por falhas silenciosas que se acumulam.</p>
+            <ul class="problem-points">
+              <li>Glosas recorrentes e faturamento imprevisível.</li>
+              <li>Contratos envelhecidos frente ao custo atual da operação.</li>
+              <li>Indicadores financeiros e assistenciais pouco confiáveis.</li>
+              <li>Falta de governança entre sócios, lideranças e áreas de apoio.</li>
+              <li>Processos frágeis que afetam experiência do paciente e resultado.</li>
+            </ul>
+          </div>
+          <div class="diagnostic-panel">
+            <h3>Diagnóstico executivo</h3>
+            <p>O trabalho começa por leitura técnica da realidade da clínica: contratos, glosas, fluxos, indicadores, governança, equipe e pontos de fricção que comprometem caixa ou crescimento.</p>
+            <div class="diagnostic-grid">
+              <article class="diagnostic-item"><strong>Pergunta 01</strong><h4>Receita</h4><p>Sua operação sabe exatamente quanto perde entre faturamento, recurso, prazo e recebimento?</p></article>
+              <article class="diagnostic-item"><strong>Pergunta 02</strong><h4>Contratos</h4><p>As tabelas, pacotes e condições com operadoras ainda acompanham seus custos e sua complexidade atual?</p></article>
+              <article class="diagnostic-item"><strong>Pergunta 03</strong><h4>Governança</h4><p>As decisões entre sócios, direção e liderança seguem critérios claros ou dependem de negociação permanente?</p></article>
+              <article class="diagnostic-item"><strong>Pergunta 04</strong><h4>Experiência</h4><p>O paciente encontra uma jornada consistente do agendamento ao pós-procedimento ou apenas um esforço operacional?</p></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="atuacao">
+      <div class="wrap">
+        <div class="editorial-head">
+          <div>
+            <div class="label"><span class="line"></span> Atuação seletiva</div>
+            <h2 class="editorial-title">Soluções sob medida para a sua <em>realidade.</em></h2>
+          </div>
+          <p class="editorial-deck">O foco não é “fazer um pouco de tudo”. É atuar nas frentes que mais mudam a capacidade de decisão, a qualidade operacional e a saúde financeira da clínica.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card"><div><div class="service-no">01</div><h3>Contratos e pacotes</h3><p>Revisão estratégica de tabelas, pacotes e condições de negociação para reduzir erosão de margem e melhorar previsibilidade.</p></div><div class="service-arrow">→</div></article>
+          <article class="service-card"><div><div class="service-no">02</div><h3>Glosas e faturamento</h3><p>Mapeamento das causas de perda, rotinas de auditoria, protocolos de recurso e fortalecimento do fluxo de recebimento.</p></div><div class="service-arrow">→</div></article>
+          <article class="service-card"><div><div class="service-no">03</div><h3>Indicadores e finanças</h3><p>Painéis executivos, DRE gerencial, leitura de margem por linha de serviço e indicadores que sustentam decisões mensais.</p></div><div class="service-arrow">→</div></article>
+          <article class="service-card"><div><div class="service-no">04</div><h3>Governança societária</h3><p>Critérios de rateio, papéis, responsabilidades, ritos de gestão e organização das conversas sensíveis entre sócios.</p></div><div class="service-arrow">→</div></article>
+          <article class="service-card"><div><div class="service-no">05</div><h3>Qualidade e jornada</h3><p>Qualidade assistencial, risco, processos, experiência do paciente e coerência institucional ao longo da operação.</p></div><div class="service-arrow">→</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section authority" id="ingeborg">
+      <div class="wrap">
+        <div class="editorial-head">
+          <div>
+            <div class="label"><span class="line"></span> Sobre</div>
+            <h2 class="editorial-title">Quem está do outro lado da <em>mesa.</em></h2>
+          </div>
+          <p class="editorial-deck">Antes de qualquer recomendação, existe uma pergunta legítima: quem vai olhar para a minha clínica e com que repertório essa leitura será feita?</p>
+        </div>
+        <div class="authority-grid">
+          <div>
+            <div class="authority-photo-frame"><img class="authority-photo" src="./assets/ingeborg-portrait.svg" alt="Retrato de Ingeborg Voelz em tratamento editorial monocromático."></div>
+            <div class="authority-signature">Ingeborg Voelz</div>
+            <div class="authority-role">Administradora hospitalar · Blumenau · Santa Catarina</div>
+          </div>
+          <div class="authority-body">
+            <h3 class="authority-lead">Experiência prática, leitura executiva e compromisso com resultado sustentável.</h3>
+            <p>Ingeborg Voelz atua há mais de quatro décadas no setor de saúde. Desde 2004, está à frente de rotinas executivas no <strong>Hospital de Olhos de Blumenau</strong>, com envolvimento direto em contratos, faturamento hospitalar, qualidade, gestão de pessoas, indicadores, processos e governança.</p>
+            <p>Sua trajetória inclui experiência em operação hospitalar, faturamento, autorização, estatística, estruturação de cargos, protocolos, implantação e manutenção de qualidade, adequação à LGPD e acompanhamento de áreas críticas da clínica e do hospital-dia.</p>
+            <p>A formação combina Administração, Estatística, Controladoria e Finanças, Estratégia Empresarial, Gestão Hospitalar Estratégica, Contabilidade Empresarial e Psicologia Organizacional. O resultado é uma consultoria que conversa bem tanto com o corpo clínico quanto com a direção.</p>
+            <div class="cred-grid">
+              <article class="cred-card"><small>1979 → presente</small><strong>Setor de saúde</strong><p>Mais de 40 anos de atuação contínua em instituições de saúde, com repertório construído em operação real.</p></article>
+              <article class="cred-card"><small>1984 → 2004</small><strong>Unimed de Blumenau</strong><p>Passagem pela coordenação de autorizações e, depois, do setor de estatística, com leitura sistêmica de dados e fluxos.</p></article>
+              <article class="cred-card"><small>2004 → atual</small><strong>Hospital de Olhos de Blumenau</strong><p>Atuação executiva contínua com liderança sobre faturamento, financeiro, qualidade, agendas, centro cirúrgico e áreas de apoio.</p></article>
+              <article class="cred-card"><small>Formação executiva</small><strong>Gestão, finanças, estratégia e pessoas</strong><p>MBA e pós-graduação em áreas-chave para decisões clínicas, financeiras e institucionais mais maduras.</p></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section simulator" id="simulador">
+      <div class="wrap">
+        <div class="editorial-head">
+          <div>
+            <div class="label"><span class="line"></span> Ferramenta de análise</div>
+            <h2 class="editorial-title">Quanto a sua clínica pode estar perdendo por <em>mês?</em></h2>
+          </div>
+          <p class="editorial-deck">Uma estimativa educativa para traduzir glosas em impacto financeiro real. Não substitui diagnóstico, mas ajuda a dimensionar o custo da invisibilidade.</p>
+        </div>
+        <div class="sim-grid">
+          <div class="sim-copy">
+            <p>Glosa não é detalhe burocrático. É receita produzida que não se transforma em caixa. Quando a operação não acompanha causa, reincidência e taxa de recuperação, a perda se normaliza.</p>
+            <p>Em muitos casos, o problema não está apenas na equipe de faturamento, mas na origem: contratos, pacotes, codificação, autorização prévia, rotinas e critérios de conferência.</p>
+            <div class="meta">Estimativa educativa<br>Ajuste conforme a realidade da operação<br>Resultado usado apenas como referência inicial</div>
+          </div>
+          <div class="sim-card">
+            <div class="sim-head"><span>Calculadora executiva</span><strong id="simPeriod">Leitura mensal</strong></div>
+            <div class="sim-field">
+              <div class="sim-row"><span class="sim-label">Faturamento mensal via operadoras</span><span class="sim-value" id="simFatLabel">R$ 220.000</span></div>
+              <input id="simFat" type="range" min="50000" max="900000" step="10000" value="220000">
+              <div class="sim-hint">Volume mensal recebido a partir de convênios e operadoras.</div>
+            </div>
+            <div class="sim-field">
+              <div class="sim-row"><span class="sim-label">Taxa atual de glosa</span><span class="sim-value" id="simGlosaLabel">14%</span></div>
+              <input id="simGlosa" type="range" min="2" max="30" step="1" value="14">
+              <div class="sim-hint">Percentual glosado antes de qualquer recuperação.</div>
+            </div>
+            <div class="sim-field">
+              <div class="sim-row"><span class="sim-label">Recuperação atual dos recursos</span><span class="sim-value" id="simRecLabel">35%</span></div>
+              <input id="simRec" type="range" min="0" max="95" step="5" value="35">
+              <div class="sim-hint">Quanto da glosa retorna ao caixa depois de recurso e revisão.</div>
+            </div>
+            <div class="sim-result"><small>Perda estimada</small><strong id="simLoss">R$ 20.020</strong><p>Impacto anual projetado: <span id="simYear">R$ 240.240</span></p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="metodo">
+      <div class="wrap">
+        <div class="editorial-head">
+          <div>
+            <div class="label"><span class="line"></span> Método</div>
+            <h2 class="editorial-title">Uma conversa séria precisa de método, não de <em>pressa.</em></h2>
+          </div>
+          <p class="editorial-deck">O trabalho não começa com prescrição pronta. Começa com escuta, leitura de dados, entendimento da realidade e definição de prioridade executiva.</p>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item open"><button class="faq-question" type="button"><span>Leitura inicial</span><span class="faq-toggle">+</span></button><div class="faq-answer">Conversa reservada para entender contexto, porte, prioridade, momento da operação e o tipo de tensão que a clínica vive hoje.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button"><span>Diagnóstico executivo</span><span class="faq-toggle">+</span></button><div class="faq-answer">Análise de contratos, glosas, indicadores, processos, governança, rotina gerencial e interfaces que sustentam ou corroem resultado.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button"><span>Plano de atuação</span><span class="faq-toggle">+</span></button><div class="faq-answer">Definição de ações, responsáveis, ritos de acompanhamento e critérios de sucesso compatíveis com a maturidade e a ambição da clínica.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="wrap contact-grid">
+        <div class="contact-copy">
+          <div class="label"><span class="line"></span> Próximo passo</div>
+          <h3>Uma conversa reservada pode ser o ponto de virada.</h3>
+          <p>Se faz sentido explorar sua realidade com mais profundidade, o primeiro passo é uma conversa objetiva, discreta e sem teatralidade comercial.</p>
+          <p>Você pode seguir direto para o WhatsApp ou preencher os pontos essenciais abaixo para abrir a conversa já com contexto.</p>
+          <div class="contact-cards">
+            <div class="contact-card"><small>WhatsApp</small><strong><a href="https://wa.me/5547999796000?text=Ol%C3%A1%2C%20Ingeborg.%20Quero%20agendar%20uma%20conversa%20reservada%20sobre%20a%20gest%C3%A3o%20da%20minha%20cl%C3%ADnica." target="_blank" rel="noopener">(47) 99979-6000</a></strong><span>Caminho principal para a primeira conversa.</span></div>
+            <div class="contact-card"><small>E-mail institucional</small><strong><a href="mailto:ingevoelz@yahoo.com.br">ingevoelz@yahoo.com.br</a></strong><span>Canal de apoio para documentação e encaminhamentos.</span></div>
+            <div class="contact-card"><small>Base de atuação</small><strong>Blumenau · Vale do Itajaí</strong><span>Atendimento com agenda seletiva, presencial ou remoto conforme a necessidade.</span></div>
+          </div>
+        </div>
+        <div class="briefing">
+          <div class="briefing-head"><h3>Preparar conversa</h3><span>WhatsApp</span></div>
+          <form class="briefing-form" id="briefingForm">
+            <div class="briefing-grid">
+              <div class="field"><label for="nome">Nome</label><input id="nome" name="nome" type="text" placeholder="Seu nome"></div>
+              <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" placeholder="seuemail@exemplo.com"></div>
+            </div>
+            <div class="field"><label for="clinica">Clínica / especialidade</label><input id="clinica" name="clinica" type="text" placeholder="Ex.: Oftalmologia, ortopedia, multi, hospital-dia"></div>
+            <div class="briefing-grid">
+              <div class="field"><label for="prioridade">Prioridade principal</label><select id="prioridade" name="prioridade"><option value="">Selecione</option><option>Glosas e faturamento</option><option>Contratos com operadoras</option><option>Governança societária</option><option>Indicadores e DRE gerencial</option><option>Qualidade, processos e risco</option></select></div>
+              <div class="field"><label for="porte">Porte da operação</label><select id="porte" name="porte"><option value="">Selecione</option><option>Clínica em estruturação</option><option>Pequeno porte</option><option>Médio porte</option><option>Hospital-dia / operação mais complexa</option></select></div>
+            </div>
+            <div class="field"><label for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" placeholder="Conte brevemente o que merece atenção agora."></textarea></div>
+            <button class="button-primary full" type="submit">Abrir conversa no WhatsApp
+              <svg class="button-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10H17M11.5 4.5L17 10L11.5 15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </button>
+          </form>
+          <p class="briefing-note">Os dados servem apenas para contextualizar a mensagem antes da conversa.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-copy"><strong>Ingeborg Voelz</strong><span>Consultoria executiva em gestão de saúde · Blumenau · Vale do Itajaí · Santa Catarina</span></div>
+      <div class="footer-meta">Contratos · Glosas · Indicadores · Governança · Qualidade<br>Gestão que sustenta decisões. Resultados que permanecem.</div>
+    </div>
+  </footer>
+
+  <div class="mobile-whats">
+    <a class="button-primary full" href="https://wa.me/5547999796000?text=Ol%C3%A1%2C%20Ingeborg.%20Quero%20agendar%20uma%20conversa%20reservada%20sobre%20a%20gest%C3%A3o%20da%20minha%20cl%C3%ADnica." target="_blank" rel="noopener">Agendar conversa
+      <svg class="button-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10H17M11.5 4.5L17 10L11.5 15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </a>
+  </div>
+
+  <script>
+    const phone = "5547999796000";
+    const qs = (selector) => document.querySelector(selector);
+    const qsa = (selector) => document.querySelectorAll(selector);
+
+    function formatCurrency(value) {
+      return new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 }).format(value || 0);
+    }
+
+    function updateSimulator() {
+      const fat = Number(qs("#simFat").value);
+      const glosa = Number(qs("#simGlosa").value);
+      const rec = Number(qs("#simRec").value);
+      const loss = fat * (glosa / 100) * (1 - rec / 100);
+      const year = loss * 12;
+      qs("#simFatLabel").textContent = formatCurrency(fat);
+      qs("#simGlosaLabel").textContent = `${glosa}%`;
+      qs("#simRecLabel").textContent = `${rec}%`;
+      qs("#simLoss").textContent = formatCurrency(loss);
+      qs("#simYear").textContent = formatCurrency(year);
+    }
+
+    function buildWhatsappMessage(data) {
+      const lines = ["Olá, Ingeborg. Quero agendar uma conversa reservada sobre a gestão da minha clínica."];
+      if (data.nome) lines.push(`Nome: ${data.nome}`);
+      if (data.email) lines.push(`E-mail: ${data.email}`);
+      if (data.clinica) lines.push(`Clínica / especialidade: ${data.clinica}`);
+      if (data.prioridade) lines.push(`Prioridade principal: ${data.prioridade}`);
+      if (data.porte) lines.push(`Porte da operação: ${data.porte}`);
+      if (data.mensagem) lines.push(`Mensagem: ${data.mensagem}`);
+      return encodeURIComponent(lines.join("\n"));
+    }
+
+    qsa(".faq-question").forEach((button) => {
+      button.addEventListener("click", () => button.parentElement.classList.toggle("open"));
+    });
+
+    ["#simFat", "#simGlosa", "#simRec"].forEach((selector) => {
+      qs(selector).addEventListener("input", updateSimulator);
+    });
+    updateSimulator();
+
+    qs("#briefingForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const message = buildWhatsappMessage({
+        nome: form.get("nome")?.toString().trim(),
+        email: form.get("email")?.toString().trim(),
+        clinica: form.get("clinica")?.toString().trim(),
+        prioridade: form.get("prioridade")?.toString().trim(),
+        porte: form.get("porte")?.toString().trim(),
+        mensagem: form.get("mensagem")?.toString().trim()
+      });
+      window.open(`https://wa.me/${phone}?text=${message}`, "_blank", "noopener");
+    });
+  </script>
+</body>
+</html>
